@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/search.css">
     <script src="/static/js/core.js"></script>
     <script src="/static/js/templates.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+            integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.onload = () => {
+            getRank();
+            getPost();
+            cannotCrawl();
+        }
+    </script>
 </head>
 <body>
 <div class="service_header search new" data-tiara-layer="gnb">
@@ -14,10 +24,13 @@
         <div class="f_r">
             <div class="wrap_btn_search on">
                 <form action="/search" method="get">
-                    <input name="q" id="searchQuery" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요" autocomplete="off" value="hello">
+                    <input name="q" id="searchQuery" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
+                           autocomplete="off" value="hello">
                     <input name="profileId" type="hidden" value="">
                 </form>
-                <a href="/search" id="btnServiceMenuSearch" type="button" class="f_r img_ico text_hide btn_search #search_btn" data-tiara-action-kind="Search" data-tiara-layer="search"  data-tiara-search_type="keyword">검색
+                <a href="/search" id="btnServiceMenuSearch" type="button"
+                   class="f_r img_ico text_hide btn_search #search_btn" data-tiara-action-kind="Search"
+                   data-tiara-layer="search" data-tiara-search_type="keyword">검색
                 </a>
             </div>
         </div>
@@ -63,7 +76,15 @@
                         <div id="resultKeyword" class="result_recommend animation_up_late">
                             <div class="writerContainer">
                                 <strong class="tit_recommend dd">글많은 블로그!!</strong>
-                                <div class="search_recommend">
+                                <div class="search_recommend" id="rec1">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div id="resultKeyword" class="result_recommend animation_up_late">
+                            <div class="writerContainer">
+                                <strong class="tit_recommend dd">수집 못한 블로그ㅠㅠ</strong>
+                                <div class="search_recommend" id="rec2">
 
                                 </div>
                             </div>
@@ -120,4 +141,5 @@
     </div>
 </div>
 
-</body></html>
+</body>
+</html>

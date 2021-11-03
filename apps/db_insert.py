@@ -1,7 +1,6 @@
-import fileinput
-import uuid
 from pymongo import MongoClient
 import mongoengine as me
+import uuid
 import csv
 import os
 os.popen("mongod")
@@ -9,8 +8,6 @@ client = MongoClient()
 db = client.get_database("dbmember")
 col1 = db.get_collection("student")
 col2 = db.get_collection("members")
-# driver = webdriver.Chrome()
-# driver.implicitly_wait(5)
 
 
 class Member(me.Document):
@@ -56,7 +53,7 @@ def inject_members():
                 blog=blog1,
                 blog_type=btype
             )
-            col1.insert_one(mem.to_mongo())
+            col1.update_one({"username": name}, {'$set': mem.to_mongo()})
         if blog2.strip():
             mem = Member(
                 uid=uuid.uuid4().__str__(),
@@ -64,7 +61,7 @@ def inject_members():
                 blog=blog2,
                 blog_type=btype
             )
-            col1.insert_one(mem.to_mongo())
+            col1.update_one({"username": name}, {'$set': mem.to_mongo()})
     input_file.close()
 
 
@@ -91,3 +88,7 @@ def member_card():
                 specialty=specialty.split(',')
             )
             col2.update_one({"username": name}, {'$set': mem.to_mongo()})
+
+
+if __name__ == '__main__':
+    member_card()

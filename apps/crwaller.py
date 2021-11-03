@@ -1,20 +1,14 @@
-import time
-
-from pymongo import MongoClient
-import re
-import mongoengine as me
+from selenium.webdriver.common.by import By
 from pymongo.collection import Collection
+from apps.crawller2 import crawl_post
+from pymongo import MongoClient
 from selenium import webdriver
-from urllib import parse
-import requests
 from bs4 import BeautifulSoup
-import csv
-from pprint import pprint
+from urllib import parse
+import time
+import re
 import os
 
-from selenium.webdriver.common.by import By
-
-driver = webdriver.Chrome()
 os.popen("mongod")
 client = MongoClient()
 db = client.get_database("dbmember")
@@ -22,6 +16,7 @@ students: Collection = db.get_collection("student")
 
 
 def tistory_blog():
+    driver = webdriver.Chrome()
     members = students.find({"blog_type": "tistory"}, {"_id": False})
     tistory_urls = []
     for member in members:
@@ -30,17 +25,20 @@ def tistory_blog():
     for name, url, types in tistory_urls:
         target_part = parse.urlparse(url+"sitemap")
         target = parse.urlunparse(target_part)
-        res = requests.get(target)
-        soup = BeautifulSoup(res.text, 'html.parser')
+        driver.get(target)
+        res = driver.page_source
+        soup = BeautifulSoup(res, 'html.parser')
         regex = re.compile(url+r"\d+")
         url_list = sorted(regex.findall(soup.text))
         if not url_list:
             regex = re.compile(url+"entry/" + r"[\-%\w\d]+")
             url_list = sorted(regex.findall(soup.text))
         students.update_one({"username": name}, {"$set": {"blog_list": url_list}}, upsert=True)
+    driver.quit()
 
 
 def velog_blog():
+    driver = webdriver.Chrome()
     velog_mem = students.find({"blog_type": "velog"}, {"_id": False})
     velog_urls = []
     for mem in velog_mem:
@@ -62,8 +60,11 @@ def velog_blog():
         url_list =[]
         for content in contents:
             url_list.append(content.get_attribute('href'))
-            students.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
+        students.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
+    driver.quit()
 
 
 if __name__ == '__main__':
     tistory_blog()
+    velog_blog()
+    crawl_post()

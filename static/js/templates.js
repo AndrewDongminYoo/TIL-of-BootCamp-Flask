@@ -7,7 +7,7 @@ const thumbnail = (til_post) => {
                     <strong class="tit_subject">${title}</strong>
                     <div class="wrap_sub_content"></div>
                     <em class="tit_sub"></em>
-                    <span class="article_content">${description}</span>
+                    <span class="article_content">${description}...</span>
                     <span class="mobile_d_n post_append">
                         <span>공유</span>
                         <span class="num_txt">${shared}</span>
@@ -29,16 +29,42 @@ const thumbnail = (til_post) => {
 
 }
 
-const rankAuthor = (author) => {
-    const { username, blog, image } = author;
+const rankAuthor = (author, count) => {
+    const { username, url, image, hobby, specialty } = author;
     return `
-        <a class="item_recommend" href="${blog}" target="_blank">
+        <a class="item_recommend" href="${url}" target="_blank">
             <span class="thumb_g">
                 <img src="${image}" width="36" height="36" class="img_thumb" alt="${username}">
             </span>
             <div class="detail_recommend">
                 <div class="inner_recommend">
                     <span class="txt_recommend">${username}</span>
+                    <span class="txt_info">
+                        <span class="txt_g">글 ${count}</span>
+                        <span class="ico_dot"></span>
+                        <span class="txt_g">${hobby}</span>
+                        <span class="txt_g">${specialty}</span>
+                    </span>
+                </div>
+            </div>
+        </a>`
+}
+
+const unrankAuthor = (author) => {
+    const { username, url, image, hobby, specialty } = author;
+    return `
+        <a class="item_recommend" href="${url}" target="_blank">
+            <span class="thumb_g">
+                <img src="${image}" width="36" height="36" class="img_thumb" alt="${username}">
+            </span>
+            <div class="detail_recommend">
+                <div class="inner_recommend">
+                    <span class="txt_recommend">${username}</span>
+                    <span class="txt_info">
+                        <span class="ico_dot"></span>
+                        <span class="txt_g">${hobby}</span>
+                        <span class="txt_g">${specialty}</span>
+                    </span>
                 </div>
             </div>
         </a>`

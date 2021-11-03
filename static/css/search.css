@@ -2565,10 +2565,6 @@ body {
     box-sizing: border-box
 }
 
-.wrap_article_list li + li {
-    margin: 14px 0 0
-}
-
 .wrap_article_list li.list_has_image {
     min-height: 180px
 }
@@ -2680,7 +2676,7 @@ body {
 
 .search_recommend {
     overflow: hidden;
-    max-height: 298px;
+    /*max-height: 298px;*/
     padding: 10px 0 0
 }
 
@@ -2733,7 +2729,8 @@ body {
 
 .search_recommend .txt_info {
     display: block;
-    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
     font-size: 12px;
     line-height: 18px;
     font-family: "Noto Sans Light", "Malgun Gothic", sans-serif;
@@ -3895,12 +3892,11 @@ body {
 .wrap_article_list .list_article .post_thumb {
     overflow: hidden;
     width: 160px;
-    height: 160px;
+    height: 100%;
     background-position: center;
     position: absolute;
     background-size: cover;
     float: right;
-    margin-top: 5px;
     right: 0;
-    top: 25px;
+    top: 0;
 }

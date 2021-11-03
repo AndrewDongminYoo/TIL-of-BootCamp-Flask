@@ -1,11 +1,11 @@
-import re
+from selenium.common.exceptions import NoSuchElementException
 from datetime import datetime, timedelta, timezone
+from selenium.webdriver.common.by import By
 from pymongo import MongoClient
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
 from db_insert import Post
 import os
+import re
 
 os.popen("mongod")
 client = MongoClient()
@@ -76,6 +76,7 @@ def crawl_post():
                         put_doc(post)
                     except NoSuchElementException:
                         pass
+    driver.quit()
 
 
 def get_time(time_string) -> datetime:
