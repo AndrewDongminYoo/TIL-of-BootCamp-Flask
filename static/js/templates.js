@@ -1,30 +1,38 @@
 const thumbnail = (til_post) => {
-    const { title, description, url, image, reg_date, shared, comment, author } = til_post;
+    const { title, description, site_name, url, image, registered, modified, shared, comment, name } = til_post;
     return `
-        <li class="list_has_image animation_up_late"></li><a href="${url}" target="_blank" class="link_post #post_list">
-        <div class="post_title has_image"></div><strong class="tit_subject">${title}</strong>
-        <div class="wrap_sub_content"></div><em class="tit_sub"></em></em>
-        <span class="article_content">${description}</span></div>
-        <span class="mobile_d_n post_append"></span><span>공유</span><span class="num_txt">${shared}</span>
-        <span class="ico_dot"></span></span><span>댓글</span><span class="num_txt">${comment}</span>
-        <span class="ico_dot"></span></span><span class="publish_time">${reg_date}</span><span class="ico_dot"></span>
-        </span><span class="txt_by">by</span><span>${author}</span></span></div>
-        <div class="post_thumb">
-            <img class="mobile_d_n img_thumb" src="${image}" alt="이미지정보">
-            <img class="pc_d_n img_thumb" src="${image}" alt="이미지정보">
-        </div>
-        <span class="pc_d_n post_append"></span><span>공유</span><span class="num_txt">${shared}</span>
-        <span class="ico_dot"></span></span><span>댓글</span><span class="num_txt">${comment}</span>
-        <span class="ico_dot"></span></span><span class="publish_time">${reg_date}</span>
-        <span class="ico_dot"></span></span><span class="ico_brunch txt_by">by</span><span>By ${author}</span>
-        </span></a>
+        <li class="list_has_image animation_up_late">
+            <a href="${url}" target="_blank" class="link_post #post_list">
+                <div class="post_title has_image">
+                    <strong class="tit_subject">${title}</strong>
+                    <div class="wrap_sub_content"></div>
+                    <em class="tit_sub"></em>
+                    <span class="article_content">${description}</span>
+                    <span class="mobile_d_n post_append">
+                        <span>공유</span>
+                        <span class="num_txt">${shared}</span>
+                        <span class="ico_dot"></span>
+                        <span>댓글</span>
+                        <span class="num_txt">${comment}</span>
+                        <span class="ico_dot"></span>
+                        <span class="publish_time">${moment(registered).fromNow()}</span>
+                        <span class="ico_dot"></span>
+                        <span class="txt_by">${site_name}</span>
+                        <span class="ico_dot"></span>
+                        <span>By ${name}</span>
+                    </span>
+                </div>
+                    <div class="post_thumb" style="background-image: url('${image}')">
+                </div>    
+            </a>
         </li>`
+
 }
 
 const rankAuthor = (author) => {
-    const { username, url, image } = author;
+    const { username, blog, image } = author;
     return `
-        <a class="item_recommend" href="${url}" target="_blank">
+        <a class="item_recommend" href="${blog}" target="_blank">
             <span class="thumb_g">
                 <img src="${image}" width="36" height="36" class="img_thumb" alt="${username}">
             </span>

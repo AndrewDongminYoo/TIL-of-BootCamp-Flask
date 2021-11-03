@@ -3392,6 +3392,11 @@ footer .copyright {
     box-sizing: border-box
 }
 
-/* END 2021-02-25 B.Setting.css.vm에서 이동 및 추가 */
+.wrap_article_list .list_article .post_append {
+    display: block;
+    padding-top: 20px;
+    font-size: 12px;
+    color: #959595;
+}
 
 

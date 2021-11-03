@@ -1,3 +1,4 @@
+import fileinput
 import uuid
 from pymongo import MongoClient
 import mongoengine as me
@@ -12,6 +13,13 @@ col2 = db.get_collection("members")
 # driver.implicitly_wait(5)
 
 
+class Member(me.Document):
+    uid = me.UUIDField(binary=False)
+    username = me.StringField()
+    blog = me.URLField()
+    blog_type = me.StringField()
+
+
 class Student(me.Document):
     id = me.UUIDField(binary=False)
     username = me.StringField()
@@ -22,11 +30,18 @@ class Student(me.Document):
     specialty = me.ListField()
 
 
-class Member(me.Document):
-    uid = me.UUIDField(binary=False)
-    username = me.StringField()
-    blog = me.URLField()
-    blog_type = me.StringField()
+class Post(me.Document):
+    name = me.StringField()
+    author = me.StringField()
+    title = me.StringField()
+    site_name = me.StringField()
+    description = me.StringField()
+    url = me.URLField()
+    image = me.URLField()
+    registered = me.DateTimeField()
+    modified = me.DateTimeField()
+    shared = me.IntField()
+    comment = me.IntField()
 
 
 def inject_members():
@@ -64,15 +79,15 @@ def member_card():
             hobby = hobby.replace(', ', ',')
             specialty = specialty.replace(', ', ',')
             specialty = specialty.replace(', ', ',')
+            image = ""
+            for f in os.listdir("../static/img"):
+                if f.startswith(name):
+                    image = f
             mem = Student(
                 username=name,
+                image="/static/img/"+image,
                 url=blog,
                 hobby=hobby.split(','),
                 specialty=specialty.split(',')
             )
-            col2.insert_one(mem.to_mongo())
-
-
-
-
-
+            col2.update_one({"username": name}, {'$set': mem.to_mongo()})

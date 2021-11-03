@@ -2430,8 +2430,6 @@ body {
 }
 
 .txt_by {
-    width: 15px;
-    height: 15px;
     margin-right: 4px;
     font-size: 12px;
     font-family: Georgia;
@@ -2520,7 +2518,7 @@ body {
 
 .tab_keywords {
     position: relative;
-    width: 650px;
+     width: 650px;
     display: inline-block;
     float: left
 }
@@ -2576,7 +2574,7 @@ body {
 }
 
 .wrap_article_list .list_article .post_title.has_image {
-    width: 520px
+    width: 510px
 }
 
 .wrap_article_list .list_article .post_thumb {
@@ -3892,4 +3890,17 @@ body {
     font-size: 11px;
     line-height: 16px;
     vertical-align: top
+}
+
+.wrap_article_list .list_article .post_thumb {
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    background-position: center;
+    position: absolute;
+    background-size: cover;
+    float: right;
+    margin-top: 5px;
+    right: 0;
+    top: 25px;
 }
