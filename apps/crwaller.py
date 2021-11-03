@@ -1,25 +1,109 @@
+# -*- coding: utf-8 -*-
+from selenium.common.exceptions import NoSuchElementException
+from datetime import datetime, timedelta, timezone
 from selenium.webdriver.common.by import By
 from pymongo.collection import Collection
-from apps.crawller2 import crawl_post
 from pymongo import MongoClient
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from urllib import parse
+import mongoengine as me
+import uuid
+import csv
 import time
 import re
 import os
 
-os.popen("mongod")
+
 client = MongoClient()
+if client.HOST == "localhost":
+    os.popen("mongod")
 db = client.get_database("dbmember")
+articles: Collection = db.get_collection("articles")
 students: Collection = db.get_collection("student")
+members: Collection = db.get_collection("members")
+members_blogs = students.find({}).sort("blog_type")
+
+
+class Member(me.Document):
+    uid = me.UUIDField(binary=False)
+    username = me.StringField()
+    blog = me.URLField()
+    blog_type = me.StringField()
+    image = me.URLField()
+    member_card = me.StringField()
+    hobby = me.ListField()
+    specialty = me.ListField()
+
+
+class Post(me.Document):
+    name = me.StringField()
+    author = me.StringField()
+    title = me.StringField()
+    site_name = me.StringField()
+    description = me.StringField()
+    url = me.URLField()
+    image = me.URLField()
+    registered = me.DateTimeField()
+    modified = me.DateTimeField()
+    shared = me.IntField()
+    comment = me.IntField()
+
+
+def inject_members():
+    with open("data/blog.csv", newline="",
+              encoding="utf-8", mode="r") as input_file:
+        input_file.__next__()
+        for line in input_file.readlines():
+            [name, blog1, blog2, btype] = line.strip().split(',')
+            if blog1:
+                mem = Member(
+                    uid=uuid.uuid4(),
+                    username=name,
+                    blog=blog1,
+                    blog_type=btype
+                )
+                students.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
+            if blog2.strip():
+                mem = Member(
+                    uid=uuid.uuid4(),
+                    username=name,
+                    blog=blog2,
+                    blog_type=btype
+                )
+                students.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
+
+
+def member_card():
+    with open("data/member.csv", newline="",
+              encoding="utf-8", mode="r") as input_file:
+        input_file.__next__()
+        reader = csv.reader(input_file)
+        for line in reader:
+            [name, blog, hobby, specialty] = line[:4]
+            hobby = hobby.replace(', ', ',')
+            hobby = hobby.replace(', ', ',')
+            specialty = specialty.replace(', ', ',')
+            specialty = specialty.replace(', ', ',')
+            image = ""
+            for f in os.listdir("../static/img"):
+                if f.startswith(name):
+                    image = f
+            mem = Member(
+                username=name,
+                image="/static/img/"+image,
+                blog=blog,
+                hobby=hobby.split(','),
+                specialty=specialty.split(',')
+            )
+            members.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
 
 
 def tistory_blog():
     driver = webdriver.Chrome()
-    members = students.find({"blog_type": "tistory"}, {"_id": False})
+    tistory_members = students.find({"blog_type": "tistory"}, {"_id": False})
     tistory_urls = []
-    for member in members:
+    for member in tistory_members:
         if member["blog"].strip():
             tistory_urls.append((member['username'], member['blog'], member["blog_type"]))
     for name, url, types in tistory_urls:
@@ -39,9 +123,9 @@ def tistory_blog():
 
 def velog_blog():
     driver = webdriver.Chrome()
-    velog_mem = students.find({"blog_type": "velog"}, {"_id": False})
+    velog_members = students.find({"blog_type": "velog"}, {"_id": False})
     velog_urls = []
-    for mem in velog_mem:
+    for mem in velog_members:
         if mem["blog"].strip():
             velog_urls.append((mem['username'], mem['blog'], mem["blog_type"]))
     for name, url, types in velog_urls:
@@ -62,6 +146,98 @@ def velog_blog():
             url_list.append(content.get_attribute('href'))
         students.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
     driver.quit()
+    
+
+def crawl_post():
+    driver = webdriver.Chrome()
+    for student in members_blogs:
+        if student.get("blog_list"):
+            if student["blog_type"] == "tistory":
+                for url in student["blog_list"]:
+                    if list(articles.find({"url": url})):
+                        continue
+                    try:
+                        driver.get(url)
+                        title = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:title"]').get_attribute('content')
+                        author = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:article:author"]').get_attribute('content')
+                        site_name = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:site_name"]').get_attribute('content')
+                        reg_date = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:regDate"]').get_attribute('content')
+                        modified_time = driver.find_element(By.CSS_SELECTOR, 'meta[property="article:modified_time"]').get_attribute('content')
+                        image = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:image"]').get_attribute('content')
+                        description = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:description"]').get_attribute('content')
+
+                        post = Post(
+                            name=student['username'],
+                            author=author,
+                            url=url,
+                            title=title,
+                            site_name=site_name,
+                            registered=get_time(reg_date),
+                            modified=get_time(modified_time),
+                            image=image,
+                            description=description,
+                            shared=0,
+                            comment=0
+                        )
+                        put_doc(post)
+                    except NoSuchElementException:
+                        pass
+            else:
+                for url in student["blog_list"]:
+                    if list(articles.find({"url": url})):
+                        continue
+                    try:
+                        driver.get(url)
+                        title = driver.title
+                        author = driver.find_element(By.CSS_SELECTOR, 'span.username').text
+                        site_name = driver.find_element(By.CSS_SELECTOR, 'a.user-logo').text
+                        reg_date = driver.find_element(By.CSS_SELECTOR, 'div.information > span:nth-child(3)').text
+                        image = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:image"]').get_attribute('content')
+                        description = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:description"]').get_attribute('content')
+                        post = Post(
+                            name=student['username'],
+                            author=author,
+                            url=url,
+                            title=title,
+                            site_name=site_name,
+                            registered=get_time(reg_date),
+                            image=image,
+                            description=description,
+                            shared=0,
+                            comment=0
+                        )
+                        put_doc(post)
+                    except NoSuchElementException:
+                        pass
+    driver.quit()
+
+
+def get_time(time_string) -> datetime:
+    timezone(timedelta(hours=+9))
+    regex0 = re.compile(r"[약 ]*(\d{1,2})일 전")
+    regex00 = re.compile(r"[약 ]*(\d{1,2})시간 전")
+    regex1 = re.compile(r"(\d{4})년 (\d{1,2})월 (\d{1,2})일")
+    regex2 = re.compile(r"(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})")
+    if time_string == "어제":
+        return datetime.now() - timedelta(days=1)
+    if regex0.match(time_string):
+        n = int(regex0.match(time_string).groups()[0])
+        return datetime.now() - timedelta(days=n)
+    elif regex00.match(time_string):
+        n = int(regex00.match(time_string).groups()[0])
+        return datetime.now() - timedelta(hours=n)
+    elif regex1.match(time_string):
+        year, month, day = map(int, regex1.match(time_string).groups())
+        return datetime(year, month, day)
+    elif regex2.match(time_string):
+        year, month, day, hour, minute, sec = map(int, regex2.match(time_string).groups())
+        return datetime(year, month, day, hour, minute, sec)
+    else:
+        return datetime.fromisoformat(time_string)
+
+
+def put_doc(post):
+    articles.update_one({"url": post['url']}, {"$set": post.to_mongo()}, upsert=True)
 
 
 if __name__ == '__main__':
