@@ -76,7 +76,7 @@ const getRank = () => {
         .then(results => {
             let rankers = []
             Object.entries(results)
-                .sort(([e,]) => -parseInt(e))
+                .sort(([cnt,]) => -parseInt(cnt))
                 .forEach(([cnt, person]) => {
                     let template = rankAuthor(person, cnt)
                     rankers.push(template)
@@ -90,6 +90,7 @@ const comingSoon = () => {
         .then(res => res.json())
         .then((result) => {
             let names = [];
+
             result.forEach((nbc, i) => {
                 names.push(`<a class="keyword_elem"
                    href="https://teamsparta.notion.site/0dd2d4c1d21e41dabf60c45cf2c0c9a6?v=226b3128e1f14d8393e0ce475946446c"

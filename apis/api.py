@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
+import json
 import os
 
 os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
@@ -15,15 +16,11 @@ bp = Blueprint(name="api", import_name="api", url_prefix="/api")
 
 @bp.route("/rank")
 def get_list_of_blogs():
-    members = list(col1.find({}, {"_id": False}).sort("blog_list", -1))
-    for mem in members:
-        if not mem.get('blog_list'):
-            members.remove(mem)
-    result = {}
-    for ranker in members:
-        r = db.get_collection("members").find_one({"username": ranker["username"]}, {"_id": False})
+    ranking = list(col1.find({}, {"_id": False}).sort("blog_list", -1))
+    result = dict()
+    for ranker in ranking:
         if ranker.get("blog_list"):
-            result[len(ranker.get("blog_list"))] = r
+            result[len(ranker.get("blog_list"))] = ranker
     return jsonify(result)
 
 
@@ -59,3 +56,4 @@ def coming_soon():
     for member in list(cursor):
         result.append(member["username"])
     return jsonify(result)
+

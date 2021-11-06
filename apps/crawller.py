@@ -15,6 +15,7 @@ import time
 import re
 import os
 
+os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
 
 client = MongoClient(os.environ.get('DB_PATH'))
 if client.HOST == "localhost":
@@ -146,7 +147,7 @@ def velog_blog():
         url_list = []
         for content in contents:
             url_list.append(content.get_attribute('href'))
-        members.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
+        members.update_one({"username": name}, {"$set": {"blog_list": sorted(list(set(url_list)))}}, upsert=True)
     driver.quit()
     
 
@@ -155,8 +156,10 @@ def crawl_post():
     driver = webdriver.Chrome()
     for student in members_blogs:
         if student.get("blog_list"):
+            blog_list = list(set(student["blog_list"]))
+            members.update_one({"username": student["username"]}, {"$set": {"blog_list": blog_list}})
             if student["blog_type"] == "tistory":
-                for url in student["blog_list"]:
+                for url in blog_list:
                     if list(articles.find({"url": url})):
                         continue
                     try:
@@ -194,7 +197,7 @@ def crawl_post():
                     except NoSuchElementException:
                         pass
             else:
-                for url in student["blog_list"]:
+                for url in blog_list:
                     if list(articles.find({"url": url})):
                         continue
                     try:
@@ -256,9 +259,14 @@ def put_doc(post):
 
 
 if __name__ == '__main__':
-    sched = BlockingScheduler()
-    sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
-    sched.add_job(member_card, 'cron', hour="10,22", id="test2")
-    sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
-    sched.add_job(velog_blog, 'cron', minute="10", id="test4")
-    sched.add_job(crawl_post, 'cron', minute="20", id="test5")
+    inject_members()
+    member_card()
+    tistory_blog()
+    velog_blog()
+    crawl_post()
+    # sched = BlockingScheduler()
+    # sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
+    # sched.add_job(member_card, 'cron', hour="10,22", id="test2")
+    # sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
+    # sched.add_job(velog_blog, 'cron', minute="10", id="test4")
+    # sched.add_job(crawl_post, 'cron', minute="20", id="test5")
