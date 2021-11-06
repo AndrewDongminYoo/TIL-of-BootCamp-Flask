@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
-from api import bp
+from apis.api import bp
 
 application = Flask(__name__)
 application.register_blueprint(bp)

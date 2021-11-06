@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, jsonify
 from pymongo import MongoClient
+import json
 import os
 
-os.popen("mongod")
-client = MongoClient()
-db = client.get_database("dbmember")
-col1 = db.get_collection("student")
+client = MongoClient(os.environ.get('DB_PATH'))
+if client.HOST == 'localhost':
+    os.popen("mongod")
+db = client.get_database("members_card")
+col1 = db.get_collection("members")
 col3 = db.get_collection("members")
 col2 = db.get_collection("articles")
 bp = Blueprint(name="api", import_name="api", url_prefix="/api")

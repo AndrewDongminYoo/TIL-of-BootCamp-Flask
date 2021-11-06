@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.common.exceptions import NoSuchElementException
+from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime, timedelta, timezone
 from selenium.webdriver.common.by import By
 from pymongo.collection import Collection
@@ -15,14 +16,13 @@ import re
 import os
 
 
-client = MongoClient()
+client = MongoClient(os.environ.get('DB_PATH'))
 if client.HOST == "localhost":
     os.popen("mongod")
-db = client.get_database("dbmember")
+db = client.get_database("members_card")
 articles: Collection = db.get_collection("articles")
-students: Collection = db.get_collection("student")
 members: Collection = db.get_collection("members")
-members_blogs = students.find({}).sort("blog_type")
+members_blogs = members.find({}).sort("blog_type")
 
 
 class Member(me.Document):
@@ -63,7 +63,7 @@ def inject_members():
                     blog=blog1,
                     blog_type=btype
                 )
-                students.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
+                members.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
             if blog2.strip():
                 mem = Member(
                     uid=uuid.uuid4(),
@@ -71,7 +71,7 @@ def inject_members():
                     blog=blog2,
                     blog_type=btype
                 )
-                students.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
+                members.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
 
 
 def member_card():
@@ -100,8 +100,9 @@ def member_card():
 
 
 def tistory_blog():
+    print("daum-tistory blog detected")
     driver = webdriver.Chrome()
-    tistory_members = students.find({"blog_type": "tistory"}, {"_id": False})
+    tistory_members = members.find({"blog_type": "tistory"}, {"_id": False})
     tistory_urls = []
     for member in tistory_members:
         if member["blog"].strip():
@@ -117,13 +118,14 @@ def tistory_blog():
         if not url_list:
             regex = re.compile(url+"entry/" + r"[\-%\w\d]+")
             url_list = sorted(regex.findall(soup.text))
-        students.update_one({"username": name}, {"$set": {"blog_list": url_list}}, upsert=True)
+        members.update_one({"username": name}, {"$set": {"blog_list": url_list}}, upsert=True)
     driver.quit()
 
 
 def velog_blog():
+    print("velo-pert blog detected")
     driver = webdriver.Chrome()
-    velog_members = students.find({"blog_type": "velog"}, {"_id": False})
+    velog_members = members.find({"blog_type": "velog"}, {"_id": False})
     velog_urls = []
     for mem in velog_members:
         if mem["blog"].strip():
@@ -144,11 +146,12 @@ def velog_blog():
         url_list =[]
         for content in contents:
             url_list.append(content.get_attribute('href'))
-        students.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
+        members.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
     driver.quit()
     
 
 def crawl_post():
+    print("let's crawl!!!!!")
     driver = webdriver.Chrome()
     for student in members_blogs:
         if student.get("blog_list"):
@@ -158,13 +161,20 @@ def crawl_post():
                         continue
                     try:
                         driver.get(url)
-                        title = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:title"]').get_attribute('content')
-                        author = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:article:author"]').get_attribute('content')
-                        site_name = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:site_name"]').get_attribute('content')
-                        reg_date = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:regDate"]').get_attribute('content')
-                        modified_time = driver.find_element(By.CSS_SELECTOR, 'meta[property="article:modified_time"]').get_attribute('content')
-                        image = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:image"]').get_attribute('content')
-                        description = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:description"]').get_attribute('content')
+                        title = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:title"]')\
+                            .get_attribute('content')
+                        author = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:article:author"]')\
+                            .get_attribute('content')
+                        site_name = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:site_name"]')\
+                            .get_attribute('content')
+                        reg_date = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:regDate"]')\
+                            .get_attribute('content')
+                        modified_time = driver.find_element(By.CSS_SELECTOR, 'meta[property="article:modified_time"]')\
+                            .get_attribute('content')
+                        image = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:image"]')\
+                            .get_attribute('content')
+                        description = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:description"]')\
+                            .get_attribute('content')
 
                         post = Post(
                             name=student['username'],
@@ -180,6 +190,7 @@ def crawl_post():
                             comment=0
                         )
                         put_doc(post)
+                        print(get_time(reg_date))
                     except NoSuchElementException:
                         pass
             else:
@@ -192,8 +203,10 @@ def crawl_post():
                         author = driver.find_element(By.CSS_SELECTOR, 'span.username').text
                         site_name = driver.find_element(By.CSS_SELECTOR, 'a.user-logo').text
                         reg_date = driver.find_element(By.CSS_SELECTOR, 'div.information > span:nth-child(3)').text
-                        image = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:image"]').get_attribute('content')
-                        description = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:description"]').get_attribute('content')
+                        image = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:image"]')\
+                            .get_attribute('content')
+                        description = driver.find_element(By.CSS_SELECTOR, 'meta[property="og:description"]')\
+                            .get_attribute('content')
                         post = Post(
                             name=student['username'],
                             author=author,
@@ -207,6 +220,7 @@ def crawl_post():
                             comment=0
                         )
                         put_doc(post)
+                        print(get_time(reg_date))
                     except NoSuchElementException:
                         pass
     driver.quit()
@@ -237,10 +251,14 @@ def get_time(time_string) -> datetime:
 
 
 def put_doc(post):
+    print(post.description)
     articles.update_one({"url": post['url']}, {"$set": post.to_mongo()}, upsert=True)
 
 
-if __name__ == '__main__':
-    tistory_blog()
-    velog_blog()
-    crawl_post()
+sched = BlockingScheduler()
+sched.start()
+sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
+sched.add_job(member_card, 'cron', hour="10,22", id="test2")
+sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
+sched.add_job(velog_blog, 'cron', minute="10", id="test4")
+sched.add_job(crawl_post, 'cron', minute="20", id="test5")
