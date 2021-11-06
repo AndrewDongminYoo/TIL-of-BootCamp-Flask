@@ -31,7 +31,7 @@ def get_list_of_unknown_blogs():
     result1 = list(col1.find({"blog_type": "medium"}, {"_id": False}))
     result2 = list(col1.find({"blog_type": "naver"}, {"_id": False}))
     result3 = list(col1.find({"blog_type": "notion"}, {"_id": False}))
-    students = result1+result2+result3
+    students = result1 + result2 + result3
     return jsonify(students)
 
 
