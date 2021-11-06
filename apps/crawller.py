@@ -143,7 +143,7 @@ def velog_blog():
                 break
             last_height = new_height
         contents = driver.find_elements(By.XPATH, '//*[@id="root"]/div[2]/div[3]/div[4]/div[3]/div/div/a')
-        url_list =[]
+        url_list = []
         for content in contents:
             url_list.append(content.get_attribute('href'))
         members.update_one({"username": name}, {"$set": {"blog_list": sorted(url_list)}}, upsert=True)
@@ -256,6 +256,7 @@ def put_doc(post):
 
 
 if __name__ == '__main__':
+    sched = BlockingScheduler()
     sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
     sched.add_job(member_card, 'cron', hour="10,22", id="test2")
     sched.add_job(tistory_blog, 'cron', minute="0", id="test3")

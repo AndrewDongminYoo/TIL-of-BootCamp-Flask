@@ -70,18 +70,6 @@ const unrankAuthor = (author) => {
         </a>`
 }
 
-const suggest = (author) => {
-    const { username, url, image, member_card } = author;
-    return `                            
-        <li class="animation_up_late">
-            <a href="${url}" class="link_g #user_recomm" target="_blank" data-tiara-search_term="${username}">
-                <img src="${image}" width="120" height="120" class="thumb_img" alt="${username}">
-                <strong class="tit_wirter">${username}</strong>
-                <span class="txt_wirter">${member_card}</span>
-            </a>
-        </li>`
-}
-
 const getRank = () => {
     fetch('/api/rank')
         .then(res => res.json())
@@ -151,7 +139,8 @@ const router = async () => {
     comingSoon();
     let articles = document.querySelector(".list_article")
     articles.innerHTML = postList.join("")
+    return 200;
 }
 
 window.addEventListener("hashchange", router)
-router();
+router().then(res=>console.log(res));
