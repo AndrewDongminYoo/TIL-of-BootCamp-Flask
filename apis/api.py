@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+import pymongo
 from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
 import os
 
+os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
 client = MongoClient(os.environ.get('DB_PATH'))
 if client.HOST == 'localhost':
     os.popen("mongod")
@@ -41,11 +43,20 @@ def get_list_of_posts():
     if not query:
         post_list = list(col2.find({}, {"_id": False}).sort('registered', -1).limit(50))
     else:
-        col2.create_index([("description", "text")])
+        # col2.create_index({"$**": pymongo.TEXT})
         cursor = col2.find(
-               {"$text": {"$search": query}},
-               {"score": {"$meta": "textScore"},
-                "_id": False})
+            {"$text": {"$search": query}},
+            {"score": {"$meta": "textScore"},
+             "_id": False})
         cursor.sort([("score", {"$meta": "textScore"})])
         post_list = list(cursor)
     return jsonify(post_list)
+
+
+@bp.route("/none")
+def coming_soon():
+    cursor = col1.find({"blog_list": None}, {"_id": False})
+    result = []
+    for member in list(cursor):
+        result.append(member["username"])
+    return jsonify(result)

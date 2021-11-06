@@ -48,7 +48,7 @@ body {
     height: 38px
 }
 
-.wrap_profile .btn_menu .ico_brunch {
+.wrap_profile .btn_menu .ico_memca {
     display: block;
     width: 20px;
     height: 18px;
@@ -63,7 +63,7 @@ body {
     height: 38px
 }
 
-.wrap_profile .btn_search .ico_brunch {
+.wrap_profile .btn_search .ico_memca {
     display: block;
     width: 22px;
     height: 22px;
@@ -193,7 +193,7 @@ body {
     left: -40px;
     width: 32px;
     height: 32px;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_post_setting.png) no-repeat
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_post_setting.png) no-repeat
 }
 
 .btn_subscription .txt_on {
@@ -201,7 +201,7 @@ body {
 }
 
 .btn_subscription .ico_subscription {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_magazine.png) no-repeat
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_magazine.png) no-repeat
 }
 
 .btn_subscription .ico_followed {
@@ -303,7 +303,7 @@ body {
     font-size: 14px
 }
 
-.scroll_head .btn_subscription .ico_brunch {
+.scroll_head .btn_subscription .ico_memca {
     width: 14px;
     height: 10px;
     margin: 4px 0 0 4px;
@@ -314,7 +314,7 @@ body {
     border-width: 1px
 }
 
-.scroll_head .btn_default .ico_brunch {
+.scroll_head .btn_default .ico_memca {
     width: 9px;
     height: 9px;
     margin: 4px 0 0 4px;
@@ -560,7 +560,7 @@ body {
     height: 20px;
     vertical-align: top;
     margin-right: 5px;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_editor_keyword.v2.png) no-repeat 0 -25px;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_editor_keyword.v2.png) no-repeat 0 -25px;
     background-size: 180px 60px;
     text-indent: -9999px
 }
@@ -585,7 +585,7 @@ body {
     text-decoration: none
 }
 
-.brunch_comment .comment_head {
+.memca_comment .comment_head {
     width: 700px;
     height: 32px;
     padding-top: 50px;
@@ -610,32 +610,32 @@ body {
     border-radius: 32px
 }
 
-.comment_head .btn_comment .ico_brunch {
+.comment_head .btn_comment .ico_memca {
     width: 12px;
     height: 12px;
     margin: 3px 0 0 5px;
     background-position: -60px -20px
 }
 
-.brunch_comment .comment_content {
+.memca_comment .comment_content {
     width: 700px;
     margin: 0 auto
 }
 
-.brunch_comment .btn_preview {
+.memca_comment .btn_preview {
     margin-top: 10px;
     font-size: 16px;
     color: #666
 }
 
-.brunch_comment .btn_preview .ico_brunch {
+.memca_comment .btn_preview .ico_memca {
     width: 18px;
     height: 17px;
     margin: 3px 8px 0 0;
     background-position: -190px -130px
 }
 
-.brunch_comment .list_comment {
+.memca_comment .list_comment {
     display: inline-block;
     width: 100%;
     padding-top: 10px
@@ -647,7 +647,7 @@ body {
     border-top: 1px solid #eee
 }
 
-.brunch_comment .link_profile {
+.memca_comment .link_profile {
     overflow: visible;
     float: left;
     position: relative;
@@ -657,23 +657,23 @@ body {
     background-position: -70px -210px
 }
 
-.brunch_comment .link_profile .img_thumb {
+.memca_comment .link_profile .img_thumb {
     border-radius: 42px
 }
 
-.brunch_comment .link_profile .frame_g {
+.memca_comment .link_profile .frame_g {
     width: 40px;
     height: 40px;
     border-radius: 42px
 }
 
-.brunch_comment .link_profile:hover .frame_g {
+.memca_comment .link_profile:hover .frame_g {
     background-color: #000;
     opacity: .25;
     filter: alpha(opacity:25)
 }
 
-.brunch_comment .link_profile .ico_brunch {
+.memca_comment .link_profile .ico_memca {
     position: absolute;
     right: -9px;
     top: -2px;
@@ -681,15 +681,15 @@ body {
     height: 19px
 }
 
-.brunch_comment .link_profile .ico_facebook {
+.memca_comment .link_profile .ico_facebook {
     background-position: -170px 0
 }
 
-.brunch_comment .link_profile .ico_kakao {
+.memca_comment .link_profile .ico_kakao {
     background-position: -110px 0
 }
 
-.brunch_comment .link_profile .ico_tweeter {
+.memca_comment .link_profile .ico_tweeter {
     background-position: -140px 0
 }
 
@@ -741,13 +741,13 @@ body {
     background-color: #f6f6f6
 }
 
-.brunch_comment .comment_sticker {
+.memca_comment .comment_sticker {
     position: relative;
     width: 120px;
     padding-top: 10px
 }
 
-.brunch_comment .comment_sticker .btn_delete {
+.memca_comment .comment_sticker .btn_delete {
     position: absolute;
     top: 0;
     right: 0;
@@ -768,7 +768,7 @@ body {
     height: 30px
 }
 
-.comment_setting .btn_setting .ico_brunch {
+.comment_setting .btn_setting .ico_memca {
     display: block;
     width: 3px;
     height: 13px;
@@ -897,7 +897,7 @@ body {
     padding-bottom: 10px
 }
 
-.brunch_comment .comment_write {
+.memca_comment .comment_write {
     position: relative;
     width: 700px;
     padding-top: 27px;
@@ -978,33 +978,33 @@ body {
     margin: 12px 6px 0 0
 }
 
-.comment_write .btn_sns .ico_brunch {
+.comment_write .btn_sns .ico_memca {
     float: left;
     width: 25px;
     height: 25px
 }
 
-.comment_write .btn_kakaotalk .ico_brunch {
+.comment_write .btn_kakaotalk .ico_memca {
     background-position: -340px 0
 }
 
-.comment_write .btn_kakaotalk.sns_on .ico_brunch {
+.comment_write .btn_kakaotalk.sns_on .ico_memca {
     background-position: -340px -30px
 }
 
-.comment_write .btn_facebook .ico_brunch {
+.comment_write .btn_facebook .ico_memca {
     background-position: -250px 0
 }
 
-.comment_write .btn_facebook.sns_on .ico_brunch {
+.comment_write .btn_facebook.sns_on .ico_memca {
     background-position: -250px -30px
 }
 
-.comment_write .btn_tweeter .ico_brunch {
+.comment_write .btn_tweeter .ico_memca {
     background-position: -280px 0
 }
 
-.comment_write .btn_tweeter.sns_on .ico_brunch {
+.comment_write .btn_tweeter.sns_on .ico_memca {
     background-position: -280px -30px
 }
 
@@ -1084,7 +1084,7 @@ body {
     display: none
 }
 
-.brunch_comment .suggest_on {
+.memca_comment .suggest_on {
     z-index: 100
 }
 
@@ -1298,7 +1298,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/frame_thumb.png) no-repeat 0 0
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/frame_thumb.png) no-repeat 0 0
 }
 
 .list_magazine .bloger_thumb {
@@ -1357,7 +1357,7 @@ body {
 }
 
 .list_magazine .item_none {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/bg_none2.png) no-repeat 0 0
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/bg_none2.png) no-repeat 0 0
 }
 
 .list_magazine .thumb_none .tit_subject {
@@ -1384,15 +1384,15 @@ body {
     color: #bfbfbf
 }
 
-.brunch_magazine .d_head {
+.memca_magazine .d_head {
     background-color: #fff
 }
 
-.brunch_magazine #mArticle {
+.memca_magazine #mArticle {
     padding-bottom: 0
 }
 
-.brunch_magazine .btn_magazine {
+.memca_magazine .btn_magazine {
     width: 108px;
     height: 32px;
     border: 1px solid #bbb;
@@ -1402,21 +1402,21 @@ body {
     color: #959595
 }
 
-.brunch_magazine .btn_subscription {
+.memca_magazine .btn_subscription {
     width: 88px;
     height: 32px;
     font-size: 13px;
     line-height: 32px
 }
 
-.brunch_magazine .btn_subscription .ico_brunch {
+.memca_magazine .btn_subscription .ico_memca {
     width: 14px;
     height: 10px;
     margin: 9px 0 0 4px;
     background-position: -10px -20px
 }
 
-.brunch_magazine .btn_default {
+.memca_magazine .btn_default {
     width: 88px;
     height: 32px;
     border-width: 1px;
@@ -1424,49 +1424,49 @@ body {
     line-height: 32px
 }
 
-.brunch_magazine .home_magazine {
+.memca_magazine .home_magazine {
     width: 940px
 }
 
-.brunch_magazine .info_subject .tit_subject {
+.memca_magazine .info_subject .tit_subject {
     font-size: 40px;
     line-height: 42px;
     font-family: 'Nanum Myeongjo', serif
 }
 
-.brunch_magazine .info_subject .txt_count {
+.memca_magazine .info_subject .txt_count {
     font-size: 16px
 }
 
-.brunch_magazine .info_subject .num_count {
+.memca_magazine .info_subject .num_count {
     font-size: 40px
 }
 
-.brunch_magazine .detail_append {
+.memca_magazine .detail_append {
     float: none;
     height: 20px;
     padding-top: 25px
 }
 
-.brunch_magazine .detail_append .txt_bloger {
+.memca_magazine .detail_append .txt_bloger {
     max-width: 100%
 }
 
-.brunch_magazine .home_magazine .info_append {
+.memca_magazine .home_magazine .info_append {
     padding-top: 36px
 }
 
-.brunch_magazine .magazine_util {
+.memca_magazine .magazine_util {
     float: right;
     position: relative;
     z-index: 10
 }
 
-.brunch_magazine .magazine_util .btn_magazine {
+.memca_magazine .magazine_util .btn_magazine {
     float: left
 }
 
-.brunch_magazine .magazine_util .list_util {
+.memca_magazine .magazine_util .list_util {
     display: none;
     position: absolute;
     top: 40px;
@@ -1475,11 +1475,11 @@ body {
     border: 1px solid #ddd
 }
 
-.brunch_magazine .util_open .list_util {
+.memca_magazine .util_open .list_util {
     display: block
 }
 
-.brunch_magazine .magazine_util .link_util {
+.memca_magazine .magazine_util .link_util {
     display: block;
     height: 42px;
     border-top: 1px solid #eee;
@@ -1490,31 +1490,31 @@ body {
     text-align: center
 }
 
-.brunch_magazine .magazine_util .link_util:hover {
+.memca_magazine .magazine_util .link_util:hover {
     color: #333;
     background-color: #f8f8f8
 }
 
-.brunch_magazine .magazine_util .fst .link_util {
+.memca_magazine .magazine_util .fst .link_util {
     border-top: 0 none
 }
 
-.brunch_magazine .magazine_util .btn_subscription {
+.memca_magazine .magazine_util .btn_subscription {
     float: left;
     margin-left: 8px
 }
 
-.brunch_magazine .list_magazine {
+.memca_magazine .list_magazine {
     width: 990px
 }
 
-.brunch_magazine .list_magazine li {
+.memca_magazine .list_magazine li {
     width: 280px;
     height: 400px;
     padding: 50px 50px 0 0
 }
 
-.brunch_magazine .list_magazine .link_magazine {
+.memca_magazine .list_magazine .link_magazine {
     width: 278px;
     height: 398px;
     border: 1px solid #eee;
@@ -1522,7 +1522,7 @@ body {
     background-color: #fff
 }
 
-.brunch_magazine .list_magazine .tit_subject {
+.memca_magazine .list_magazine .tit_subject {
     height: 90px;
     padding-top: 30px;
     font-size: 18px;
@@ -1530,21 +1530,21 @@ body {
     color: #666
 }
 
-.brunch_magazine .list_magazine .txt_subject {
+.memca_magazine .list_magazine .txt_subject {
     padding: 0 55px
 }
 
-.brunch_magazine .list_magazine .thumb_magazine {
+.memca_magazine .list_magazine .thumb_magazine {
     position: absolute;
     left: -1px;
     bottom: -1px
 }
 
-.brunch_magazine .thumb_magazine .frame_thumb {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/mw/bg_dimmed.png) repeat
+.memca_magazine .thumb_magazine .frame_thumb {
+    background: url(//t1.daumcdn.net/memca/static/img/help/mw/bg_dimmed.png) repeat
 }
 
-.brunch_magazine .list_magazine .bloger_thumb {
+.memca_magazine .list_magazine .bloger_thumb {
     left: 109px;
     top: 139px;
     width: 60px;
@@ -1553,25 +1553,25 @@ body {
     background-position: 0 -210px
 }
 
-.brunch_magazine .bloger_thumb .frame_g {
+.memca_magazine .bloger_thumb .frame_g {
     width: 58px;
     height: 58px;
     border-radius: 60px
 }
 
-.brunch_magazine .list_magazine .tit_bloger {
+.memca_magazine .list_magazine .tit_bloger {
     top: 207px
 }
 
-.brunch_magazine .thumb_none .tit_subject {
+.memca_magazine .thumb_none .tit_subject {
     padding-top: 45px
 }
 
-.brunch_magazine .thumb_none .bloger_thumb {
+.memca_magazine .thumb_none .bloger_thumb {
     top: 194px
 }
 
-.brunch_magazine .thumb_none .tit_bloger {
+.memca_magazine .thumb_none .tit_bloger {
     top: 264px
 }
 
@@ -1643,18 +1643,18 @@ body {
     background-color: #acacac
 }
 
-.brunch_magazine .magazine_sns {
+.memca_magazine .magazine_sns {
     width: 140px;
     height: 41px;
     margin: 0 auto;
     padding-top: 60px
 }
 
-.brunch_magazine .magazine_sns li {
+.memca_magazine .magazine_sns li {
     float: left
 }
 
-.brunch_magazine .magazine_sns .btn_facebook {
+.memca_magazine .magazine_sns .btn_facebook {
     float: left;
     width: 40px;
     height: 41px;
@@ -1662,7 +1662,7 @@ body {
     background-position: -100px -30px
 }
 
-.brunch_magazine .magazine_sns .btn_tweeter {
+.memca_magazine .magazine_sns .btn_tweeter {
     float: left;
     width: 40px;
     height: 41px;
@@ -1670,35 +1670,35 @@ body {
     background-position: -150px -30px
 }
 
-.brunch_magazine .magazine_sns .btn_kakaostory {
+.memca_magazine .magazine_sns .btn_kakaostory {
     float: left;
     width: 40px;
     height: 41px;
     background-position: -200px -30px
 }
 
-.brunch_magazine .magazine_subscription {
+.memca_magazine .magazine_subscription {
     padding-top: 20px;
     text-align: center
 }
 
-.brunch_magazine .magazine_subscription .btn_magazine {
+.memca_magazine .magazine_subscription .btn_magazine {
     margin: 0 4px
 }
 
-.brunch_magazine .magazine_subscription .btn_default {
+.memca_magazine .magazine_subscription .btn_default {
     display: inline-block;
     margin: 0 4px
 }
 
-.brunch_magazine .relation_tag {
+.memca_magazine .relation_tag {
     height: 188px;
     margin-top: 40px;
     background-color: #f8f8f8;
     text-align: center
 }
 
-.brunch_magazine .relation_tag .tit_reltag {
+.memca_magazine .relation_tag .tit_reltag {
     display: block;
     padding: 55px 0 17px;
     font-weight: 400;
@@ -1706,7 +1706,7 @@ body {
     color: #666
 }
 
-.brunch_magazine .relation_tag .link_tag {
+.memca_magazine .relation_tag .link_tag {
     display: inline-block;
     padding: 7px 12px 8px;
     margin-right: 2px;
@@ -1727,7 +1727,7 @@ body {
 }
 
 .tab_contents .wrap_report_profile .btn_report_profile_toggle {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_report_home.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_report_home.png) no-repeat;
     width: 17px;
     height: 17px;
     margin-left: 9px
@@ -1747,10 +1747,10 @@ body {
     cursor: pointer
 }
 
-.brunch_layer .btn_layer_close {
+.memca_layer .btn_layer_close {
     width: 20px;
     height: 20px;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4.png) -90px 0 no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4.png) -90px 0 no-repeat;
     position: absolute;
     top: 30px;
     right: 30px
@@ -1891,7 +1891,7 @@ body {
     cursor: zoom-out
 }
 
-.magazine_list .brunch_weekly {
+.magazine_list .memca_weekly {
     position: relative;
     height: 230px;
     padding-bottom: 40px;
@@ -1899,11 +1899,11 @@ body {
     margin-top: 40px
 }
 
-.magazine_list .brunch_weekly:first-child {
+.magazine_list .memca_weekly:first-child {
     margin-top: 60px
 }
 
-.brunch_weekly .tit_subject {
+.memca_weekly .tit_subject {
     display: block;
     width: 100%;
     overflow: hidden;
@@ -1915,7 +1915,7 @@ body {
     letter-spacing: -1px
 }
 
-.brunch_weekly .description {
+.memca_weekly .description {
     color: #959595;
     display: inline-block;
     display: -webkit-box;
@@ -1929,36 +1929,36 @@ body {
     padding-right: 30px
 }
 
-.brunch_weekly .link_magazine {
+.memca_weekly .link_magazine {
     display: block;
     width: 480px;
     margin-top: 37px
 }
 
-.brunch_weekly .link_magazine:hover .tit_subject .inner_txt {
+.memca_weekly .link_magazine:hover .tit_subject .inner_txt {
     border-bottom: 1px solid #333
 }
 
-.home_magazine.brunch_weekly .cover_book {
+.home_magazine.memca_weekly .cover_book {
     position: absolute;
     top: 0;
     right: 17px;
     box-shadow: 10px 4px 12px 0 rgba(0, 0, 0, .2)
 }
 
-.brunch_weekly .info_append {
+.memca_weekly .info_append {
     padding-top: 30px
 }
 
-.brunch_weekly .detail_append {
+.memca_weekly .detail_append {
     float: none
 }
 
-.home_magazine.brunch_weekly .cover_book .img_weekly {
+.home_magazine.memca_weekly .cover_book .img_weekly {
     top: 181px
 }
 
-.home_magazine.brunch_weekly .cover_book .ico_order + .img_weekly {
+.home_magazine.memca_weekly .cover_book .ico_order + .img_weekly {
     top: 152px
 }
 
@@ -1990,13 +1990,13 @@ body {
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {
-    .brunch_layer .btn_layer_close {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4_rtn.png);
+    .memca_layer .btn_layer_close {
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4_rtn.png);
         background-size: 240px 300px
     }
 
     .wrap_article_list .list_article .ico_reserve {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_editor_keyword.v2_rtn.png);
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_editor_keyword.v2_rtn.png);
         background-size: 180px 60px
     }
 }
@@ -2026,7 +2026,7 @@ body {
     overflow: hidden;
     font-size: 1px;
     line-height: 0;
-    background: url(//u1.daumcdn.net/brunch/static/img/help/pc/img_weekly.v2.png) no-repeat;
+    background: url(//u1.daumcdn.net/memca/static/img/help/pc/img_weekly.v2.png) no-repeat;
     text-indent: -9999px;
     vertical-align: top
 }
@@ -2345,7 +2345,7 @@ body {
     line-height: 14px;
     font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
     background-color: inherit;
-    list-style-image: url(//u1.daumcdn.net/brunch/static/img/help/pc/bg_dot2.png);
+    list-style-image: url(//u1.daumcdn.net/memca/static/img/help/pc/bg_dot2.png);
     height: auto;
     box-shadow: none
 }
@@ -2382,7 +2382,7 @@ body {
     padding-top: 15px
 }
 
-.brunch_info {
+.memca_info {
     width: 700px;
     height: 55px;
     border-bottom: 1px solid #eee;
@@ -2501,7 +2501,7 @@ body {
 .wrap_keywords .ico {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top
@@ -3211,7 +3211,7 @@ body {
         padding: 0 34px
     }
 
-    .brunch_suggest .search_form {
+    .memca_suggest .search_form {
         padding: 0
     }
 
@@ -3330,18 +3330,18 @@ body {
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {
     .img_weekly {
-        background-image: url(//u1.daumcdn.net/brunch/static/img/help/pc/img_weekly.v2_rtn.png);
+        background-image: url(//u1.daumcdn.net/memca/static/img/help/pc/img_weekly.v2_rtn.png);
         -webkit-background-size: 300px 170px;
         background-size: 300px 170px
     }
 
     .wrap_keywords .ico {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4_rtn.png);
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4_rtn.png);
         background-size: 240px 300px
     }
 
     .result_magazine .link_thumb {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/bg_empty_magazine.jpg);
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/bg_empty_magazine.jpg);
         background-size: cover
     }
 }
@@ -3814,7 +3814,7 @@ body {
     padding: 10px 0 0
 }
 
-.box_content .wrap_bagde .ico_brunch_v1 {
+.box_content .wrap_bagde .ico_memca_v1 {
     display: block;
     overflow: hidden;
     position: absolute;
@@ -3825,7 +3825,7 @@ body {
     height: 40px
 }
 
-.box_content .wrap_bagde .ico_brunch_v1 + .ico_brunch_v1 {
+.box_content .wrap_bagde .ico_memca_v1 + .ico_memca_v1 {
     z-index: 99;
     top: 21px
 }

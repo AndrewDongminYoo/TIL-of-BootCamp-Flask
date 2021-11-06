@@ -10,20 +10,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
             integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        window.addEventListener("hashchange", router)
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="wrap_search_header">
+    <div class="intro_memca">
+        <h3 class="tit_memca">내일배움캠프 멤버-ㅆ😍 (내배카~~!!!)
+            <span class="ico_memca ico_logo"></span>
+        </h3>
+        <p class="desc_memca">
+            <span class="part">내일배움캠프는 4개월 간의 팀 프로젝트 기반의 성장을 통해 ✨실전에서<br></span>
+            <span class="part">빛이- 나는- 개발자✨가 되길 원하는 캠퍼들로 이루어진 공동체입니다.<br></span>
+            <span class="part">팀 프로젝트 뿐만 아니라 스터디, 정보 공유, 네트워킹 등 다양한 활동을<br></span>
+            <span class="part">진행하고 있습니다. 서로에게 긍정적인 영향을 주고 함께 성장합시다. 😊<br></span>
+        </p>
+    </div>
     <div class="wrap_search">
         <h2 class="screen_out">검색 키워드 입력 창</h2>
         <div class="search_form">
             <form method="get" action="" accept-charset="utf-8">
-                <input class="txt_search" id="txt_search" title="검색어입력" placeholder="검색어를 입력해 주세요." maxlength="32" onkeydown="KeyPress(event)" autocomplete="off">
+                <input class="txt_search" id="txt_search" title="검색어입력" placeholder="검색어를 입력해 주세요." maxlength="32"
+                       onkeydown="KeyPress(event)" autocomplete="off">
             </form>
         </div>
     </div>
@@ -81,6 +90,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab_keywords" id="keywordItemListBlock">
+                            <a class="keyword_elem" href="https://teamsparta.notion.site/0dd2d4c1d21e41dabf60c45cf2c0c9a6?v=226b3128e1f14d8393e0ce475946446c" target="_blank">프리랜서</a>
+                        </div>
                     </div>
                 </div>
                 <div id="resultMagazine" class="search_result" style="display: none;">
@@ -105,31 +117,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="resultUser" class="search_result" style="display: none;">
-                    <div class="result_search">
-                        <div class="search_category sub_title" style="display: block;">
-                            <h3 class="tit_search">작가 검색 결과
-                                <span class="tit_search_cnt">1000+건 </span>건</h3>
-                        </div>
-                        <div class="list_search">
-                            <ul class="list_follow search_writer">
-                            </ul>
-                        </div>
-                        <div id="loadSpinner" class="layer-more-loading" style="display: none;">
-                            <div class="loader">
-                                <div class="dot dot1">
-                                </div>
-                                <div class="dot dot2">
-                                </div>
-                                <div class="dot dot3">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <input type="hidden" id="init-q" value="hello">
     </div>
 </div>
 

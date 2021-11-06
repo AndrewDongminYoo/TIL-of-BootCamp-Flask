@@ -195,19 +195,19 @@ address, caption, cite, code, dfn, em, var {
 }
 
 
-.ico_brunch {
+.ico_memca {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch8_181106.png) no-repeat;
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_memca8_181106.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top
 }
 
-.ico_brunch_v1 {
+.ico_memca_v1 {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v1_210624.png) no-repeat;
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_memca_v1_210624.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top
@@ -224,7 +224,7 @@ address, caption, cite, code, dfn, em, var {
 .ico_sns {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/gnb_btn_share.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/gnb_btn_share.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top;
@@ -260,7 +260,7 @@ address, caption, cite, code, dfn, em, var {
 
 /* service layer */
 
-.brunch_layer {
+.memca_layer {
     z-index: 10000;
     position: fixed;
     width: 100%;
@@ -271,7 +271,7 @@ address, caption, cite, code, dfn, em, var {
     overflow: auto;
 }
 
-.brunch_layer.black {
+.memca_layer.black {
     background-color: rgba(0, 0, 0, 0.65);
 }
 
@@ -286,7 +286,7 @@ address, caption, cite, code, dfn, em, var {
 }
 
 .service_header .img_ico {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4.png) no-repeat;
 }
 
 .service_header .wrap_inner {
@@ -713,7 +713,7 @@ address, caption, cite, code, dfn, em, var {
 .service_header.article.cover_type_text h1 .logo_service,
 .service_header.article.beyond_content h1 .logo_service {
     display: block;
-    background: url(//t1.daumcdn.net/brunch9/static/images/pc/logo_brunch_v1.png) no-repeat;
+    background: url(//t1.daumcdn.net/brunch9/static/images/pc/logo_memca_v1.png) no-repeat;
     width: 72px;
     height: 22px;
     margin-top: -1px;
@@ -971,7 +971,7 @@ address, caption, cite, code, dfn, em, var {
 }
 
 .ico_share_common {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_share_rtn_20180103.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_share_rtn_20180103.png) no-repeat;
     background-size: 300px 210px;;
 }
 
@@ -1247,7 +1247,7 @@ address, caption, cite, code, dfn, em, var {
     font-weight: normal;
 }
 
-.service_header .wrap_custom_brunchbook {
+.service_header .wrap_custom_memcabook {
     color: #666;
     font-size: 17px;
     letter-spacing: -1px;
@@ -1498,13 +1498,13 @@ address, caption, cite, code, dfn, em, var {
 
 #wrapSideMenu h2 .logo_service {
     display: block;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/logo_service2.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/logo_service2.png) no-repeat;
     width: 94px;
     height: 22px;
 }
 
 #wrapSideMenu .img_side_menu {
-    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_sidebar.png);
+    background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_sidebar.png);
 }
 
 #wrapSideMenu.open {
@@ -1588,8 +1588,8 @@ address, caption, cite, code, dfn, em, var {
     top: 6px;
 }
 
-#wrapSideMenu .wrap_side_service_menu li .ico_brunch_new {
-    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/img_weekly.v2.png);
+#wrapSideMenu .wrap_side_service_menu li .ico_memca_new {
+    background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/img_weekly.v2.png);
     background-position: -77px -80px;
     display: block;
     position: absolute;
@@ -1612,14 +1612,14 @@ address, caption, cite, code, dfn, em, var {
     width: 23px;
 }
 
-#wrapSideMenu .wrap_side_service_menu li a.menu_word7 em.ico_brunch_new {
+#wrapSideMenu .wrap_side_service_menu li a.menu_word7 em.ico_memca_new {
     top: -1px;
     right: 60px;
 }
 
-#wrapSideMenu .wrap_side_service_menu li a.menu_word7:hover em.ico_brunch_new,
-#wrapSideMenu .wrap_side_service_menu li a.menu_word7:focus em.ico_brunch_new,
-#wrapSideMenu .wrap_side_service_menu li.now_page a em.ico_brunch_new {
+#wrapSideMenu .wrap_side_service_menu li a.menu_word7:hover em.ico_memca_new,
+#wrapSideMenu .wrap_side_service_menu li a.menu_word7:focus em.ico_memca_new,
+#wrapSideMenu .wrap_side_service_menu li.now_page a em.ico_memca_new {
     display: none;
 }
 
@@ -1627,7 +1627,7 @@ address, caption, cite, code, dfn, em, var {
     width: 23px;
 }
 
-#wrapSideMenu .wrap_side_service_menu li a.menu_word6 em.ico_brunch_new {
+#wrapSideMenu .wrap_side_service_menu li a.menu_word6 em.ico_memca_new {
     top: -1px;
     right: 60px;
 }
@@ -1649,7 +1649,7 @@ address, caption, cite, code, dfn, em, var {
 }
 
 #wrapSideMenu .wrap_side_service_menu li.hr {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar.png) center no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_sidebar.png) center no-repeat;
     height: 15px;
     margin: 30px auto 32px;
     padding: 0;
@@ -1659,7 +1659,7 @@ address, caption, cite, code, dfn, em, var {
 }
 
 #wrapSideMenu .wrap_side_service_menu li a.login_social:hover {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/img_sidebar_hover_social2.png) center no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/img_sidebar_hover_social2.png) center no-repeat;
 }
 
 #wrapSideMenu .wrap_side_service_menu li a.login_social.menu_facebook {
@@ -1715,7 +1715,7 @@ address, caption, cite, code, dfn, em, var {
     position: absolute;
     top: 18px;
     right: 20px;
-    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar.png);
+    background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_sidebar.png);
     background-repeat: no-repeat;
 }
 
@@ -1775,7 +1775,7 @@ address, caption, cite, code, dfn, em, var {
 }
 
 #wrapSideMenu .wrap_side_profile.logout .logo_service {
-    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/logo_service2_v1.png);
+    background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/logo_service2_v1.png);
     background-repeat: no-repeat;
     width: 48px;
     height: 48px;
@@ -1882,7 +1882,7 @@ address, caption, cite, code, dfn, em, var {
 }
 
 #wrapSideMenu .wrap_side_login button {
-    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/btn_view_loginbox.png);
+    background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/btn_view_loginbox.png);
     width: 240px;
     height: 32px;
     font-size: 14px;
@@ -1900,7 +1900,7 @@ address, caption, cite, code, dfn, em, var {
 
 #wrapSideMenu .login_social .img_ico_login {
     display: inline-block;
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar_social.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_sidebar_social.png) no-repeat;
     width: 12px;
     height: 13px;
     margin-right: 5px;
@@ -1924,7 +1924,7 @@ footer .copyright {
     width: 116px;
     height: 12px;
     text-indent: -10000px;
-    background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_copyright.png)
+    background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_copyright.png)
 }
 
 /* Button */
@@ -1968,7 +1968,7 @@ footer .copyright {
     display: none
 }
 
-.btn_subscription .ico_brunch {
+.btn_subscription .ico_memca {
     width: 22px;
     height: 16px;
     margin: 7px 0 0 7px;
@@ -1983,7 +1983,7 @@ footer .copyright {
     display: none
 }
 
-.btn_subscription:hover .ico_brunch {
+.btn_subscription:hover .ico_memca {
     display: none
 }
 
@@ -1995,7 +1995,7 @@ footer .copyright {
     filter: alpha(opacity:90)
 }
 
-.btn_default .ico_brunch {
+.btn_default .ico_memca {
     width: 17px;
     height: 17px;
     margin: 7px 0 0 7px;
@@ -2257,17 +2257,17 @@ footer .copyright {
 }
 
 .compatible-info .ico_browser.ico_ie {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_browser_ie.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_browser_ie.png) no-repeat;
     width: 22px;
 }
 
 .compatible-info .ico_browser.ico_chrome {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_browser_chrome.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_browser_chrome.png) no-repeat;
     width: 20px;
 }
 
 .compatible-info .ico_browser.ico_safari {
-    background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_browser_safari.png) no-repeat;
+    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_browser_safari.png) no-repeat;
     width: 20px;
 }
 
@@ -2351,7 +2351,7 @@ footer .copyright {
     margin: 2px 0 0 -11px;
 }
 
-#wrapSideMenu .wrap_side_service_menu li.remember-me .choice_comm .ico_brunch {
+#wrapSideMenu .wrap_side_service_menu li.remember-me .choice_comm .ico_memca {
     position: absolute;
     top: 0;
     left: 0;
@@ -2377,7 +2377,7 @@ footer .copyright {
     -webkit-appearance: none
 }
 
-#wrapSideMenu .wrap_side_service_menu li.remember-me .choice_checkbox .ico_brunch {
+#wrapSideMenu .wrap_side_service_menu li.remember-me .choice_checkbox .ico_memca {
     background-position: -410px 0
 }
 
@@ -2417,7 +2417,7 @@ footer .copyright {
     color: black
 }
 
-.brunch_start .request_step_navi li, .brunch_start .book_step_navi li {
+.memca_start .request_step_navi li, .memca_start .book_step_navi li {
     color: white
 }
 
@@ -2433,28 +2433,28 @@ footer .copyright {
     .service_header.article.cover_type_text h1 .logo_service,
     .service_header.article.beyond_content h1 .logo_service,
     #wrapSideMenu .wrap_side_profile.logout .logo_service {
-        background-image: url(//t1.daumcdn.net/brunch9/static/images/pcrtn/logo_brunch_v1.png);
+        background-image: url(//t1.daumcdn.net/brunch9/static/images/pcrtn/logo_memca_v1.png);
         background-size: 200px 80px;
     }
 
     .service_header .img_ico {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4_rtn.png);
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4_rtn.png);
         background-size: 240px 300px
     }
 
     #wrapSideMenu .wrap_side_service_menu li.hr,
     #wrapSideMenu .wrap_side_ico {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_sidebar_rtn.png);
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_sidebar_rtn.png);
         background-size: 200px 50px;
     }
 
-    #wrapSideMenu .wrap_side_service_menu li .ico_brunch_new {
-        background-image: url(//t1.daumcdn.net/brunch/static/img/help/pc/img_weekly.v2_rtn.png);
+    #wrapSideMenu .wrap_side_service_menu li .ico_memca_new {
+        background-image: url(//t1.daumcdn.net/memca/static/img/help/pc/img_weekly.v2_rtn.png);
         background-size: 300px 170px;
     }
 
-    .ico_brunch_v1 {
-        background-image: url(//t1.daumcdn.net/brunch9/static/images/pcrtn/ico_brunch_v1_210624.png);
+    .ico_memca_v1 {
+        background-image: url(//t1.daumcdn.net/brunch9/static/images/pcrtn/ico_memca_v1_210624.png);
         background-size: 200px 840px
     }
 }
@@ -2626,16 +2626,16 @@ footer .copyright {
     display: block
 }
 
-.brunch_suggest #dkIndex, .brunch_suggest .wrap_banner, .brunch_suggest #dkWrap {
+.memca_suggest #dkIndex, .memca_suggest .wrap_banner, .memca_suggest #dkWrap {
     display: none
 }
 
-.brunch_suggest .wrap_inner {
+.memca_suggest .wrap_inner {
     position: relative;
     z-index: 10
 }
 
-.brunch_suggest .box_suggest {
+.memca_suggest .box_suggest {
     padding: 275px 0 227px;
     box-sizing: border-box;
     display: flex;
@@ -2644,28 +2644,28 @@ footer .copyright {
     overflow: hidden
 }
 
-.brunch_suggest .service_header .wrap_btn_search {
+.memca_suggest .service_header .wrap_btn_search {
     display: none
 }
 
-.brunch_suggest .service_header .wrap_btn_search.on {
+.memca_suggest .service_header .wrap_btn_search.on {
     display: none
 }
 
-.brunch_suggest .wrap_search {
+.memca_suggest .wrap_search {
     padding: 0;
     border-bottom: 1px solid #333
 }
 
-.brunch_suggest .search_form .txt_search::-webkit-input-placeholder {
+.memca_suggest .search_form .txt_search::-webkit-input-placeholder {
     color: #BEBEBE;
 }
 
-.brunch_suggest .search_form .txt_search:-ms-input-placeholder {
+.memca_suggest .search_form .txt_search:-ms-input-placeholder {
     color: #BEBEBE;
 }
 
-.brunch_suggest .search_form .txt_search::-ms-input-placeholder {
+.memca_suggest .search_form .txt_search::-ms-input-placeholder {
     color: #BEBEBE;
 }
 
@@ -2960,20 +2960,20 @@ footer .copyright {
 }
 
 @media all and (max-width: 1023px) and (min-width: 769px) {
-    .brunch_suggest .box_suggest {
+    .memca_suggest .box_suggest {
         padding-left: 30px;
         padding-right: 30px;
     }
 
-    .brunch_suggest .search_form {
+    .memca_suggest .search_form {
         padding: 0;
     }
 
-    .brunch_suggest .wrap_search {
+    .memca_suggest .wrap_search {
         width: 100%;
     }
 
-    .brunch_suggest .suggest_guide {
+    .memca_suggest .suggest_guide {
         width: 100%;
     }
 
@@ -3000,7 +3000,7 @@ footer .copyright {
 }
 
 @media all and (max-width: 768px) {
-    .brunch_suggest .wrap_search {
+    .memca_suggest .wrap_search {
         min-width: 600px
     }
 
@@ -3178,7 +3178,7 @@ footer .copyright {
     background: #e9e9e9
 }
 
-.brunch_layer_type3 {
+.memca_layer_type3 {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -3189,13 +3189,13 @@ footer .copyright {
     background-color: #fff
 }
 
-.brunch_layer_type3 .ico_close {
+.memca_layer_type3 .ico_close {
     width: 20px;
     height: 20px;
     background-position: -120px -30px
 }
 
-.brunch_layer_type3 .btn_close {
+.memca_layer_type3 .btn_close {
     position: absolute;
     right: 30px;
     top: 30px;
@@ -3203,13 +3203,13 @@ footer .copyright {
     height: 20px
 }
 
-.brunch_layer_type3 .layer_body {
+.memca_layer_type3 .layer_body {
     width: 330px;
     background-color: #fff;
     margin: 60px auto 0
 }
 
-.inner_brunch_type3 {
+.inner_memca_type3 {
     position: relative;
     overflow: hidden;
     width: 460px;
@@ -3302,7 +3302,7 @@ footer .copyright {
 /*}*/
 
 /* 2021-02-25 B.Setting.css.vm에서 이동 및 추가 */
-.brunch_layer_type4 {
+.memca_layer_type4 {
     position: fixed;
     top: 0;
     right: 0;
@@ -3317,7 +3317,7 @@ footer .copyright {
     align-items: center
 }
 
-.brunch_layer_type4 .inner_brunch_layer {
+.memca_layer_type4 .inner_memca_layer {
     position: relative;
     width: 460px;
     padding: 53px 0 60px;
@@ -3329,13 +3329,13 @@ footer .copyright {
     box-shadow: 0 1px 0 rgba(0, 0, 0, .1)
 }
 
-.brunch_layer_type4 .layer_body {
+.memca_layer_type4 .layer_body {
     margin: 0 auto;
     text-align: center
 }
 
-.brunch_layer_type4 .tit_layer,
-.brunch_layer_type4 .tit_agree {
+.memca_layer_type4 .tit_layer,
+.memca_layer_type4 .tit_agree {
     font-family: "Noto Sans Light";
     font-weight: normal;
     font-size: 24px;
@@ -3343,7 +3343,7 @@ footer .copyright {
     letter-spacing: -.75px
 }
 
-.brunch_layer_type4 .txt_layer {
+.memca_layer_type4 .txt_layer {
     padding-top: 21px;
     font-family: "Noto Sans Light";
     font-size: 14px;
@@ -3351,29 +3351,29 @@ footer .copyright {
     color: #959595
 }
 
-.brunch_layer_type4 .wrap_agree {
+.memca_layer_type4 .wrap_agree {
     margin-top: 29px
 }
 
-.brunch_layer_type4 .btn {
+.memca_layer_type4 .btn {
     min-width: 112px
 }
 
-.brunch_layer_type4 .btn_confirm {
+.memca_layer_type4 .btn_confirm {
     min-width: 83px
 }
 
-.brunch_layer_type4 .list_agree {
+.memca_layer_type4 .list_agree {
     margin-top: 20px
 }
 
-.brunch_layer_type4 .ico_close {
+.memca_layer_type4 .ico_close {
     width: 20px;
     height: 20px;
     background-position: -120px -30px
 }
 
-.brunch_layer_type4 .btn_close {
+.memca_layer_type4 .btn_close {
     position: absolute;
     right: 20px;
     top: 20px;
@@ -3381,11 +3381,11 @@ footer .copyright {
     height: 20px
 }
 
-.brunch_layer_type4 .btn {
+.memca_layer_type4 .btn {
     text-decoration: none
 }
 
-.brunch_layer_type4 .btn {
+.memca_layer_type4 .btn {
     min-width: 83px;
     padding-left: 16px;
     padding-right: 16px;
@@ -3399,4 +3399,28 @@ footer .copyright {
     color: #959595;
 }
 
+.intro_memca {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.tit_memca {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: "Nanum Myeongjo", sans-serif;
+    color: #1a1a1a;
+    text-align: left;
+    letter-spacing: -.05em;
+    margin: 150px auto 0;
+}
+
+.desc_memca {
+    padding-bottom: 16px;
+    margin-top: -3px;
+    font-size: 31px;
+    line-height: 46px;
+    font-family: "Nanum Myeongjo", sans-serif;
+    color: #cacaca;
+    letter-spacing: -.05em;
+}
 

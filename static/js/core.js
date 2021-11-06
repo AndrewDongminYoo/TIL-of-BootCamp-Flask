@@ -53,4 +53,20 @@ const KeyPress = (event) => {
     }
 }
 
+const comingSoon = () => {
+    fetch("/api/none")
+        .then(res=>res.json())
+        .then(result=>{
+            let names = [];
+            result.forEach((nbc)=> {
+                names.push(`<a class="keyword_elem"
+                   href="https://teamsparta.notion.site/0dd2d4c1d21e41dabf60c45cf2c0c9a6?v=226b3128e1f14d8393e0ce475946446c"
+                   target="_blank">${nbc}</a>`)
+            });
+            let keyword =  document.getElementById("keywordItemListBlock")
+            keyword.innerHTML=names.join("")
+        })
+}
+
+window.addEventListener("hashchange", router)
 router();
