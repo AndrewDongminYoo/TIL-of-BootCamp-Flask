@@ -45,3 +45,12 @@ const router = async () => {
     let articles = document.querySelector(".list_article")
     articles.innerHTML = postList.join("")
 }
+
+const KeyPress = (event) => {
+    if (event.key === 'Enter') {
+        const query = document.querySelector("#txt_search").value
+        window.location.href="#"+query;
+    }
+}
+
+router();
