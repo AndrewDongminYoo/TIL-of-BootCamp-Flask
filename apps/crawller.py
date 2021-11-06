@@ -256,14 +256,6 @@ def put_doc(post):
 
 
 if __name__ == '__main__':
-    inject_members()
-    member_card()
-    tistory_blog()
-    velog_blog()
-    crawl_post()
-else:
-    sched = BlockingScheduler()
-    sched.start()
     sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
     sched.add_job(member_card, 'cron', hour="10,22", id="test2")
     sched.add_job(tistory_blog, 'cron', minute="0", id="test3")

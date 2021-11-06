@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import pymongo
 from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
 import os
@@ -55,7 +54,7 @@ def get_list_of_posts():
 
 @bp.route("/none")
 def coming_soon():
-    cursor = col1.find({"blog_list": None}, {"_id": False})
+    cursor = col1.find({"blog": ""}, {"_id": False})
     result = []
     for member in list(cursor):
         result.append(member["username"])

@@ -135,7 +135,6 @@ address, caption, cite, code, dfn, em, var {
 .ico_memca {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_memca8_181106.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top;
@@ -144,7 +143,6 @@ address, caption, cite, code, dfn, em, var {
 .ico_memca_v1 {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_memca_v1_210624.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top;
@@ -153,7 +151,6 @@ address, caption, cite, code, dfn, em, var {
 .ico_sns {
     display: inline-block;
     overflow: hidden;
-    background: url(//t1.daumcdn.net/memca/static/img/help/pc/gnb_btn_share.png) no-repeat;
     line-height: 0;
     text-indent: -9999px;
     vertical-align: top;
@@ -198,10 +195,6 @@ address, caption, cite, code, dfn, em, var {
     position: absolute;
     z-index: 10000;
     top: 0;
-}
-
-.service_header .img_ico {
-    background: url(//t1.daumcdn.net/memca/static/img/help/pc/ico_view_cover.v4.png) no-repeat;
 }
 
 .service_header .wrap_inner {

@@ -4,12 +4,12 @@ const getRank = () => {
         .then(results => {
             let rankers = []
             Object.entries(results)
-                .sort(([e,])=>-parseInt(e))
-                .forEach(([cnt, person])=> {
+                .sort(([e,]) => -parseInt(e))
+                .forEach(([cnt, person]) => {
                     let template = rankAuthor(person, cnt)
-                        rankers.push(template)
-            })
-            document.querySelector("#rec1").innerHTML=rankers.join("")
+                    rankers.push(template)
+                })
+            document.querySelector("#rec1").innerHTML = rankers.join("")
         })
 }
 
@@ -18,11 +18,11 @@ const cannotCrawl = () => {
         .then(res => res.json())
         .then(results => {
             let rankers = []
-            results.forEach((person)=> {
-            let template = unrankAuthor(person)
+            results.forEach((person) => {
+                let template = unrankAuthor(person)
                 rankers.push(template)
             })
-            document.querySelector("#rec2").innerHTML=rankers.join("")
+            document.querySelector("#rec2").innerHTML = rankers.join("")
         })
 }
 
@@ -42,6 +42,7 @@ const router = async () => {
     })
     cannotCrawl();
     getRank();
+    comingSoon();
     let articles = document.querySelector(".list_article")
     articles.innerHTML = postList.join("")
 }
@@ -49,22 +50,22 @@ const router = async () => {
 const KeyPress = (event) => {
     if (event.key === 'Enter') {
         const query = document.querySelector("#txt_search").value
-        window.location.href="#"+query;
+        window.location.href = "#" + query;
     }
 }
 
 const comingSoon = () => {
     fetch("/api/none")
-        .then(res=>res.json())
-        .then(result=>{
+        .then(res => res.json())
+        .then((result) => {
             let names = [];
-            result.forEach((nbc)=> {
+            result.forEach((nbc, i) => {
                 names.push(`<a class="keyword_elem"
                    href="https://teamsparta.notion.site/0dd2d4c1d21e41dabf60c45cf2c0c9a6?v=226b3128e1f14d8393e0ce475946446c"
-                   target="_blank">${nbc}</a>`)
+                   target="_blank">${(i % 2 === 0 ? "" : " ") + nbc}</a>`)
             });
-            let keyword =  document.getElementById("keywordItemListBlock")
-            keyword.innerHTML=names.join("")
+            let keyword = document.getElementById("keywordItemListBlock")
+            keyword.innerHTML = names.join("")
         })
 }
 
