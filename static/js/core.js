@@ -26,15 +26,22 @@ const cannotCrawl = () => {
         })
 }
 
-const getPost = () => {
-    fetch("/api/list")
-        .then(res=>res.json())
-        .then(results=>{
-            let postList = [];
-            results.forEach((post)=>{
-                let template = thumbnail(post)
-                postList.push(template)
-            })
-            document.querySelector(".list_article").innerHTML=postList.join("")
-        })
+const router = async () => {
+
+    const query = window.location.hash.substr(1);
+    let res;
+    if (query) {
+        res = await fetch(`/api/list?query=${query}`);
+    } else {
+        res = await fetch("/api/list");
+    }
+    let result = await res.json()
+    let postList = [];
+    result.forEach((post) => {
+        postList.push(thumbnail(post))
+    })
+    cannotCrawl();
+    getRank();
+    let articles = document.querySelector(".list_article")
+    articles.innerHTML = postList.join("")
 }

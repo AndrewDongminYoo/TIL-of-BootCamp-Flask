@@ -11,28 +11,20 @@
             integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        window.onload = () => {
-            getRank();
-            getPost();
-            cannotCrawl();
-        }
+        window.addEventListener("hashchange", router)
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="service_header search new" data-tiara-layer="gnb">
-    <div class="wrap_inner ">
-        <div class="f_r">
-            <div class="wrap_btn_search on">
-                <form action="/search" method="get">
-                    <input name="q" id="searchQuery" type="text" title="검색어입력" placeholder="검색어를 입력해 주세요"
-                           autocomplete="off" value="hello">
-                    <input name="profileId" type="hidden" value="">
-                </form>
-                <a href="/search" id="btnServiceMenuSearch" type="button"
-                   class="f_r img_ico text_hide btn_search #search_btn" data-tiara-action-kind="Search"
-                   data-tiara-layer="search" data-tiara-search_type="keyword">검색
-                </a>
-            </div>
+<div class="wrap_search_header">
+    <div class="wrap_search">
+        <h2 class="screen_out">검색 키워드 입력 창</h2>
+        <div class="search_form">
+            <form method="get" action="" accept-charset="utf-8">
+                <input class="txt_search" id="txt_search" title="검색어입력" placeholder="검색어를 입력해 주세요." maxlength="32" onkeydown="KeyPress(event)" autocomplete="off">
+            </form>
         </div>
     </div>
 </div>

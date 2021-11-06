@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
 import os
 
@@ -37,5 +37,15 @@ def get_list_of_unknown_blogs():
 
 @bp.route("/list")
 def get_list_of_posts():
-    post_list = list(col2.find({}, {"_id": False}).sort('registered', -1).limit(50))
+    query = request.args.get('query')
+    if not query:
+        post_list = list(col2.find({}, {"_id": False}).sort('registered', -1).limit(50))
+    else:
+        col2.create_index([("description", "text")])
+        cursor = col2.find(
+               {"$text": {"$search": query}},
+               {"score": {"$meta": "textScore"},
+                "_id": False})
+        cursor.sort([("score", {"$meta": "textScore"})])
+        post_list = list(cursor)
     return jsonify(post_list)
