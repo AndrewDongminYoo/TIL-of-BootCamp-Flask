@@ -15,11 +15,10 @@ import time
 import re
 import os
 
-
 client = MongoClient(os.environ.get('DB_PATH'))
 if client.HOST == "localhost":
     os.popen("mongod")
-db = client.get_database("members_card")
+db = client.get_database("member_card")
 articles: Collection = db.get_collection("articles")
 members: Collection = db.get_collection("members")
 members_blogs = members.find({}).sort("blog_type")
@@ -255,10 +254,17 @@ def put_doc(post):
     articles.update_one({"url": post['url']}, {"$set": post.to_mongo()}, upsert=True)
 
 
-sched = BlockingScheduler()
-sched.start()
-sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
-sched.add_job(member_card, 'cron', hour="10,22", id="test2")
-sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
-sched.add_job(velog_blog, 'cron', minute="10", id="test4")
-sched.add_job(crawl_post, 'cron', minute="20", id="test5")
+if __name__ == '__main__':
+    inject_members()
+    member_card()
+    tistory_blog()
+    velog_blog()
+    crawl_post()
+else:
+    sched = BlockingScheduler()
+    sched.start()
+    sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
+    sched.add_job(member_card, 'cron', hour="10,22", id="test2")
+    sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
+    sched.add_job(velog_blog, 'cron', minute="10", id="test4")
+    sched.add_job(crawl_post, 'cron', minute="20", id="test5")

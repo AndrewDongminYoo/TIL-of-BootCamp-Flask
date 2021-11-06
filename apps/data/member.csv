@@ -1,22 +1,22 @@
 이름,블로그,취미,관심사,특기
 강준호,https://junhostudylog.notion.site/b7ce525e393d4bd0b9fee9ba6bccff80?v=8f357da72351478ea7900860de3fb25a,"맛집탐방, 달리기, 운동(좋아할 예정)","Back-end,DevOps,IT,JPA,Spring,민트",스프링부트와 JPA에 관심이 많은 백엔드 개발자(취준생)
 강현규,https://kkyu-coder.tistory.com/,코딩,"Back-end,DevOps,IT,JAVA,JPA,Software,Spring,cloud,food,movie,web,글쓰기,음악듣기","데이터분석과(졸업예정), Java/Spring"
-권나연,https://velog.io/@hellonayeon,음악듣기 / 여행 / 맛집,"Data,DevOps,IT,JAVA,Software,Spring,개발,스우파",컴퓨터공학부
+권나연,https://velog.io/@hellonayeon/,음악듣기 / 여행 / 맛집,"Data,DevOps,IT,JAVA,Software,Spring,개발,스우파",컴퓨터공학부
 김경우,,"드라마, 공원산책, 커피","IT,Software,Software Engineering,device,글쓰기","C, JAVA, 일어"
-김경중,https://velog.io/@rudwnd33,"운동, 풋살","Back-end,IT,JPA,RDB,Spring,web,운동,축구",??????? 컴퓨터공학 ??????? 백엔드
+김경중,https://velog.io/@rudwnd33/,"운동, 풋살","Back-end,IT,JPA,RDB,Spring,web,운동,축구","컴퓨터공학, 백엔드"
 김광훈,,"영화감상, 유튜브, 피아노","Back-end,IT,Piano,Python,Spring,고양이,음악듣기,책","취준생 / PYTHON, 웹개발, back-end"
 김내윤,,"여행, 넷플릭스, 맛집탐방, 전시회","coffee,movie,travel",회계학
 김다은,https://danykde0til.tistory.com/,"필라테스, 그림그리기, 사진찍기, 산책하기","Education,Entrepreneur,IT,Mobility,Non-profit,device,그림,정신세계,코칭",
-김대현,https://velog.io/@dhk22,"런닝, 영화, 당구","Back-end,IT,Spring,web","컴퓨터공학(졸업예정), 백엔드"
+김대현,https://velog.io/@dhk22/,"런닝, 영화, 당구","Back-end,IT,Spring,web","컴퓨터공학(졸업예정), 백엔드"
 김민재,,"사진찍기, 게임","IT,movie,travel,강아지,노래",컴퓨터학과
-김선만,https://velog.io/@manijang2,"넷플릭스, 수다 떨기","Education,IT,Software Engineering,web","Product Engineer, SpringBatch"
-김성훈,https://velog.io/@shkim1199,"운동, 넷플릭스, 웹툰, 유튜브","개발,내일배움캠프,드라마,맛집,보드게임,소프트웨어,스파르타코딩클럽,영화,웹툰,음악듣기",취준생
-김수빈,https://soupnn.tistory.com/,넷플릭스 ,"Data,Drum,travel,고양이,음악듣기,책",무역/PYTHON
+김선만,https://velog.io/@manijang2/,"넷플릭스, 수다 떨기","Education,IT,Software Engineering,web","Product Engineer, SpringBatch"
+김성훈,https://velog.io/@shkim1199/,"운동, 넷플릭스, 웹툰, 유튜브","개발,내일배움캠프,드라마,맛집,보드게임,소프트웨어,스파르타코딩클럽,영화,웹툰,음악듣기",취준생
+김수빈,https://soupnn.tistory.com/,넷플릭스,"Data,Drum,travel,고양이,음악듣기,책",무역/PYTHON
 김영산,,"게임, 축구, 유튜브","IT,Music,강아지,게임,축구",사진영상미디어학과/취준생
-김우진,https://velog.io/@dnwlsrla40,"음악 감상, 유튜브","Back-end,Education,IT,JAVA,JPA,Software,Spring,cloud,coffee,food,game,pet,강아지,개발,내일배움캠프,노래,보드게임,웹툰,음악듣기",컴퓨터공학과(졸)
+김우진,https://velog.io/@dnwlsrla40/,"음악 감상, 유튜브","Back-end,Education,IT,JAVA,JPA,Software,Spring,cloud,coffee,food,game,pet,강아지,개발,내일배움캠프,노래,보드게임,웹툰,음악듣기",컴퓨터공학과(졸)
 김은아,,강아지이랑 산책,"IT,travel,강아지,독서,피크닉","영어과, 소프트웨어학과"
 김재은,,"여행, 음악듣기","Baseball,IT,Music,travel",정보통계학과(졸업)
-김지은,writerroom.tistory.com,"달리기, 카페, 여행 ","architecture,art,choreography,cloud,investment,외국어",외국계 IT 회사 경험 有 / 영어영문학 + 경영학 
+김지은,https://writerroom.tistory.com/,"달리기, 카페, 여행 ","architecture,art,choreography,cloud,investment,외국어",외국계 IT 회사 경험 有 / 영어영문학 + 경영학
 김창주,,맛집 탐방,"IT,JAVA,JPA,Python,Spring,web,소프트웨어",컴퓨터공학과 (졸업)
 김하림,,"여행, 독서, 사람들과의 만남","Education,IT,Python,음악듣기",관광계열(일어) 전공 및 CRM 업무 4년 
 김혜린,https://khr5830.tistory.com/,마음에 드는 책 골라 읽기/요리,"Beauty,Contents&Media,Fashion,Health Care,IT,Money,Software,travel,그림,글쓰기,노래,외국어,책",컴퓨터공학과 졸업
@@ -24,36 +24,36 @@
 명지혜,,"드라이브, 산책","IT,강아지,야구,펭수",음악과 / 취준생
 박형민,https://thalals.tistory.com/,"노래 듣기, 고양이랑 놀기, 헬스","Education,Health Care,IT,Software,travel,고양이,운동,음악듣기",컴퓨터소프트웨어공학과 / 취준생
 배소영,,"카페가기, 운동, 음악듣기, 피아노치기","IT,travel,강아지,카페","회계학, 취준생(이디야 알바생)"
-서성혁,https://velog.io/@tjtjdgur0,"음악듣기, 넷플릭스 보기, 산책하기","IT,food,movie,pet,고양이,음악듣기",무직 / 리액트 /웹개발 기초
-서재환,https://velog.io/@woodstock1993,조깅 / 사진,"food,sleep",영어영문학과(졸)
+서성혁,https://velog.io/@tjtjdgur0/,"음악듣기, 넷플릭스 보기, 산책하기","IT,food,movie,pet,고양이,음악듣기",무직 / 리액트 /웹개발 기초
+서재환,https://velog.io/@woodstock1993/,조깅 / 사진,"food,sleep",영어영문학과(졸)
 서정대,,"운동, 조깅, 독서, ","AI,Blockchain,DevOps,Education,Entrepreneur,Finance,Health Care,IT,Software,cloud,philosophy,robotics,뇌과학,독서,명상",철학전공/경제학부전공 구 로스쿨준비생 현 개발자 
-서지희,https://velog.io/@diheet,"맛집가기, 유튜브","Back-end,IT,JAVA,Spring,강아지,드라마",컴퓨터공학과
-서태욱,https://velog.io/@apolontes,"식물 키우기 (벵갈고무나무, 홍콩야자, 장미허브)","Education,Fashion,Health Care,Mobility,apple,food,pet,philosophy,travel,고양이,글쓰기,노래,식물,영화,외국어,요리,음악듣기,정신세계,책",국제법/국제정치 전공 구고시생 현내일배움캠퍼
-서효영,,"볼링,영화,사격","Contents&Media,IT,Software,food,pet,travel,게임,노래,영화,음악듣기,축구,투자","백엔드,풀스택"
+서지희,https://velog.io/@diheet/,"맛집가기, 유튜브","Back-end,IT,JAVA,Spring,강아지,드라마",컴퓨터공학과
+서태욱,https://velog.io/@apolontes/,"식물 키우기 (벵갈고무나무, 홍콩야자, 장미허브)","Education,Fashion,Health Care,Mobility,apple,food,pet,philosophy,travel,고양이,글쓰기,노래,식물,영화,외국어,요리,음악듣기,정신세계,책",국제법/국제정치 전공 구고시생 현내일배움캠퍼
+서효영,,"볼링,영화,사격","Contents&Media/,IT,Software,food,pet,travel,게임,노래,영화,음악듣기,축구,투자","백엔드,풀스택"
 송주현,https://thdwngus2.tistory.com/,"영화, 미드, 애니","DevOps,IT,Software,게임,노래,영화,음악듣기,축구,투자","spring, react"
 신한국,https://codari.tistory.com/,"크로스핏, 러닝, 클라이밍","Data,IT,beer,food,travel,노래,보드게임,운동,웹툰",독일언어문학과 (졸업)
-심은철,https://medium.com/@scm1400,영화,"gathertown,making something,web,영화",프리랜서 취준생
+심은철,https://medium.com/@scm1400/,영화,"gather-town,making something,web,영화",프리랜서 취준생
 안중환,,영화감상,IT,취준생
 안휘원,,게임 / 웹툰 / 음악감상,"Animal,Learning,게임,고양이,떡볶이",International Business / 취준생
 양찬홍,https://l0u0l.tistory.com/,"게임, 유튜브, 넷플릭스","Android,Back-end,JAVA,JPA,Spring,게임",컴퓨터소프트웨어공학과
-양해준,https://blog.naver.com/yhaejun123,유튜브 시청,"Back-end,Drum,IT,Software,travel,게임,고양이,디저트,오리","경제학과, C, Python"
+양해준,https://blog.naver.com/yhaejun123/,유튜브 시청,"Back-end,Drum,IT,Software,travel,게임,고양이,디저트,오리","경제학과, C, Python"
 우성호,https://hoa2019.tistory.com/,"드라이브,여행,맛집가기,볼링","Music,coffee,movie,travel,전시회,홈트레이닝",전기설계
 우정윤,,"넷플릭스, 피아노 연주","IT,Python,Software,investment,travel,미드,외국어,피아노",보건 전공
 유동민,https://cat-minzzi.tistory.com/,요리/고양이쓰다듬기/코딩,"DevOps,IT,Mobility,Software,food,pet,고양이,글쓰기,시간관리,요리,코칭",리액트/리액트네이티브
-유제협,https://velog.io/@yu_jep,"공상과학/판타지 영화 , 홈트","Contents&Media,Health Care,IT,Music,Swiming,cooking,game,making something,movie,축구","전기제어공학과(졸업), PYTHON"
+유제협,https://velog.io/@yu_jep/,"공상과학/판타지 영화, 홈트","Contents&Media,Health Care,IT,Music,Swimming,cooking,game,making something,movie,축구","전기제어공학과(졸업), PYTHON"
 윤영현,https://goodtoseeyou.tistory.com/,"Netflix, 게임","Education,IT,Software Engineering,game,investment","컴퓨터소프트웨어공학과, 교직이수"
 이성우,https://lukaid.tistory.com/,"게임, 운동","Education,Finance,Fitness,Health Care,IT,Software","취준, Python, Data Science"
-이수영,,"자전거 , 맛집가기 ","Back-end,IT,JAVA,Spring,web,떡볶기,커피","컴퓨터공학과 , 장고프로젝트 "
+이수영,,"자전거, 맛집가기 ","Back-end,IT,JAVA,Spring,web,떡볶기,커피","컴퓨터공학과, 장고 프로젝트 "
 이주연,,"여행, 독서 ","IT,독서,동물,어학",경영학과(졸)
 이진권,,"드라마, 탁구","AI,Education,Software",JAVA SPRING
 이찬호,,"영화,산책,커피,해축,맛집","Finance,IT,architecture,investment,movie,강아지","메이크업아티스트, 빈티지 가구/조명 컬렉터,"
 이한솔,https://just-it.tistory.com/,게임 / 넷플릭스 / 영화보기,"게임,맛집,영화,음악듣기",취준생
 이호상,,computer game,"Education,IT,game,making something,robotics,고양이,미드","Full stack, Arduino, Algorithm, AI  "
 장민,,"여행, 넥플릭스 뭐볼지 고민하기","Design,IT,food,swimming,travel",시각디자인과 졸업
-장호진,https://ohjinn.tistory.com,여행,"Back-end,IT,Music,Scuba-Diving,Swiming,travel","경제학, 컴퓨터공학"
+장호진,https://ohjinn.tistory.com/,여행,"Back-end,IT,Music,Scuba-Diving,Swimming,travel","경제학, 컴퓨터공학"
 장효진,,"유튜브, 검색","JAVA,web,친구네강아지산책시키기,카페","취준생, JAVA"
 전송연,,"닌텐도, 넷플릭스, 그림 그리기, 서울 나드리, 커피, 웹툰, 따릉이","Design,Entrepreneur,IT,JAVA,apple,beer,shoes,web,디지털디톡스,떡볶기,만화,스우파,어학,외국어,침착맨,커피,피크닉,해양생물","??Node.js, MongoDB, ??영어/국제무역 전공, MICE 사업, 섬유 원자재 해외영업"
-정태희,https://heendoong.tistory.com/,"운동, 웹툰,  산책, 드라이브","Back-end,Beauty,IT,강아지,고양이,요리,전시회,헬스","IT경영학과 졸업예정, JAVA, PYTHON"
+정태희,https://heendoong.tistory.com/,"운동, 웹툰,  산책, 드라이브","Back-end,Beauty,IT,강아지,고양이,요리,전시회,헬스","IT 경영학과 졸업예정, JAVA, PYTHON"
 천소연,https://lu-delight.tistory.com/,"게임, 강아지와 산책하기","Back-end,Fashion,IT,Software,강아지,전시회",졸업예정자
 최대환,,"유튜브시청, 축구보기","AI,Back-end,IT,Money,Python,beer,food,시간관리,영화,축구,프리랜서",취준생/장고프로젝트
 최보람,,"재즈합창, 넷플릭스, 산책","Design,Festival,Health Care,Music,travel",편집디자인 / 영상디자인과

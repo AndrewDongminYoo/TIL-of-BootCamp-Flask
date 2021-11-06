@@ -38,7 +38,7 @@ const rankAuthor = (author, count) => {
             </span>
             <div class="detail_recommend">
                 <div class="inner_recommend">
-                    <span class="txt_recommend">${username}</span>
+                    <span class="txt_recommend">${username} 🔥</span>
                     <span class="txt_info">
                         <span class="txt_g">글 ${count}</span>
                         <span class="ico_dot"></span>
