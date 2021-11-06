@@ -15,6 +15,7 @@ import time
 import re
 import os
 
+
 client = MongoClient(os.environ.get('DB_PATH'))
 if client.HOST == "localhost":
     os.popen("mongod")
