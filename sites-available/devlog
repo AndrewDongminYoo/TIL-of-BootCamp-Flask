@@ -1,9 +1,0 @@
-server {
-    listen 443;
-    server_name itwassummer.shop www.itwassummer.shop;
-
-    location / {
-        include proxy_params;
-        proxy_pass http://unix:/home/ubuntu/devlog/devlog.sock;
-    }
-}

@@ -15,8 +15,6 @@ import time
 import re
 import os
 
-
-os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
 client = MongoClient(os.environ.get('DB_PATH'))
 db = client.get_database("member_card")
 articles: Collection = db.get_collection("articles")
@@ -147,7 +145,7 @@ def velog_blog():
             url_list.append(content.get_attribute('href'))
         members.update_one({"username": name}, {"$set": {"blog_list": sorted(list(set(url_list)))}}, upsert=True)
     driver.quit()
-    
+
 
 def crawl_post():
     print("let's crawl!!!!!")
