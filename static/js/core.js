@@ -30,9 +30,9 @@ const thumbnail = (til_post) => {
 }
 
 const rankAuthor = (author, count) => {
-    const { username, url, image, hobby, specialty } = author;
+    const { username, blog, image, hobby, specialty } = author;
     return `
-        <a class="item_recommend" href="${url}" target="_blank">
+        <a class="item_recommend" href="${blog}" target="_blank">
             <span class="thumb_g">
                 <img src="${image}" width="36" height="36" class="img_thumb" alt="${username}">
             </span>
