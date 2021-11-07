@@ -111,6 +111,26 @@ def tistory_blog():
     driver.quit()
 
 
+def github_blog():
+    print("github.io blog detected")
+    driver = webdriver.Chrome()
+    github_members = members.find({"blog_type": "github"}, {"_id": False})
+    github_urls = []
+    for member in github_members:
+        if member["blog"].strip():
+            github_urls.append((member['username'], member['blog'], member["blog_type"]))
+    for name, url, types in github_urls:
+        target_part = parse.urlparse(url + "sitemap")
+        target = parse.urlunparse(target_part)
+        driver.get(target)
+        res = driver.page_source
+        soup = BeautifulSoup(res, 'html.parser')
+        regex = re.compile(url + r"[^page|tags][\d\-TILa-z]+")
+        url_list = sorted(regex.findall(soup.text))
+        members.update_one({"username": name}, {"$set": {"blog_list": sorted(list(set(url_list)))}}, upsert=True)
+    driver.quit()
+
+
 def velog_blog():
     print("velo-pert blog detected")
     driver = webdriver.Chrome()
@@ -146,7 +166,7 @@ def crawl_post():
         if student.get("blog_list"):
             blog_list = list(set(student["blog_list"]))
             members.update_one({"username": student["username"]}, {"$set": {"blog_list": blog_list}})
-            if student["blog_type"] == "tistory":
+            if student["blog_type"] == "tistory" or student["blog_type"] == "github":
                 for url in blog_list:
                     if list(articles.find({"url": url})):
                         continue
@@ -221,6 +241,8 @@ def get_time(time_string) -> datetime:
     timezone(timedelta(hours=+9))
     regex0 = re.compile(r"[약 ]*(\d{1,2})일 전")
     regex00 = re.compile(r"[약 ]*(\d{1,2})시간 전")
+    regex000 = re.compile(r"[약 ]*(\d{1,2})분 전")
+    regex0000 = re.compile(r"[약 ]*(\d{1,2})초 전")
     regex1 = re.compile(r"(\d{4})년 (\d{1,2})월 (\d{1,2})일")
     regex2 = re.compile(r"(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})")
     if time_string == "어제":
@@ -231,6 +253,12 @@ def get_time(time_string) -> datetime:
     elif regex00.match(time_string):
         n = int(regex00.match(time_string).groups()[0])
         return datetime.now() - timedelta(hours=n)
+    elif regex000.match(time_string):
+        n = int(regex000.match(time_string).groups()[0])
+        return datetime.now() - timedelta(minutes=n)
+    elif regex0000.match(time_string):
+        n = int(regex0000.match(time_string).groups()[0])
+        return datetime.now() - timedelta(seconds=n)
     elif regex1.match(time_string):
         year, month, day = map(int, regex1.match(time_string).groups())
         return datetime(year, month, day)
@@ -247,15 +275,16 @@ def put_doc(post):
 
 
 if __name__ == '__main__':
-    sched = BlockingScheduler(timezone="Asia/Seoul")
-    sched.start()
-    sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
-    sched.add_job(member_card, 'cron', hour="10,22", id="test2")
-    sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
-    sched.add_job(velog_blog, 'cron', minute="10", id="test4")
-    sched.add_job(crawl_post, 'cron', minute="20", id="test5")
-    # inject_members()
-    # member_card()
-    # tistory_blog()
-    # velog_blog()
-    # crawl_post()
+    # scheduler = BlockingScheduler(timezone="Asia/Seoul")
+    # scheduler.start()
+    # scheduler.add_job(inject_members, 'cron', hour="9,21", id="test1")
+    # scheduler.add_job(member_card, 'cron', hour="10,22", id="test2")
+    # scheduler.add_job(tistory_blog, 'cron', minute="0", id="test3")
+    # scheduler.add_job(velog_blog, 'cron', minute="10", id="test4")
+    # scheduler.add_job(crawl_post, 'cron', minute="20", id="test5")
+    inject_members()
+    member_card()
+    tistory_blog()
+    github_blog()
+    velog_blog()
+    crawl_post()
