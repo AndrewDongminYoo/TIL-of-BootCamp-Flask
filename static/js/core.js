@@ -26,7 +26,6 @@ const thumbnail = (til_post) => {
                 </div>
             </a>
         </li>`
-
 }
 
 const rankAuthor = (author, count) => {
