@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
-import json
 import os
 
 os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
 client = MongoClient(os.environ.get('DB_PATH'))
-if client.HOST == 'localhost':
-    os.popen("mongod")
 db = client.get_database("member_card")
 col1 = db.get_collection("members")
 col2 = db.get_collection("articles")

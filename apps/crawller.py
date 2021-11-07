@@ -15,11 +15,9 @@ import time
 import re
 import os
 
-os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
 
+os.environ["DB_PATH"] = "mongodb://admin:rew748596@3.35.149.46:27017/member_card?authSource=admin"
 client = MongoClient(os.environ.get('DB_PATH'))
-if client.HOST == "localhost":
-    os.popen("mongod")
 db = client.get_database("member_card")
 articles: Collection = db.get_collection("articles")
 members: Collection = db.get_collection("members")
@@ -259,14 +257,14 @@ def put_doc(post):
 
 
 if __name__ == '__main__':
-    inject_members()
-    member_card()
-    tistory_blog()
-    velog_blog()
-    crawl_post()
-    # sched = BlockingScheduler()
-    # sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
-    # sched.add_job(member_card, 'cron', hour="10,22", id="test2")
-    # sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
-    # sched.add_job(velog_blog, 'cron', minute="10", id="test4")
-    # sched.add_job(crawl_post, 'cron', minute="20", id="test5")
+    sched = BlockingScheduler(timezone="Asia/Seoul")
+    sched.start()
+    sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
+    sched.add_job(member_card, 'cron', hour="10,22", id="test2")
+    sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
+    sched.add_job(velog_blog, 'cron', minute="10", id="test4")
+    sched.add_job(crawl_post, 'cron', minute="20", id="test5")
+    # member_card()
+    # tistory_blog()
+    # velog_blog()
+    # crawl_post()

@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve devlog
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/devlog
+Environment="PATH=/home/ubuntu/devlog/venv/bin"
+ExecStart=/home/ubuntu/devlog/venv/bin/gunicorn --workers 3 --bind unix:devlog.sock -m 007 wsgi:application
+
+[Install]
+WantedBy=multi-user.target

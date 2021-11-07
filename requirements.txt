@@ -7,7 +7,6 @@ cffi==1.15.0
 charset-normalizer==2.0.7
 click==8.0.3
 colorama==0.4.4
-cryptography==35.0.0
 dnspython==2.1.0
 email-validator==1.1.3
 Flask==2.0.2
@@ -23,7 +22,7 @@ pycparser==2.20
 pymongo==3.12.1
 pyOpenSSL==21.0.0
 requests==2.26.0
-selenium==4.0.0
+selenium==4.0.0a7
 six==1.16.0
 sniffio==1.2.0
 sortedcontainers==2.4.0
