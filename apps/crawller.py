@@ -15,7 +15,7 @@ import time
 import re
 import os
 
-client = MongoClient(os.environ.get('DB_PATH'))
+client = MongoClient("mongodb://admin:rew748596@3.35.149.46:27017/")
 db = client.get_database("member_card")
 articles: Collection = db.get_collection("articles")
 members: Collection = db.get_collection("members")
@@ -52,20 +52,13 @@ def inject_members():
               encoding="utf-8", mode="r") as input_file:
         input_file.__next__()
         for line in input_file.readlines():
-            [name, blog1, blog2, btype] = line.strip().split(',')
-            if blog1:
+            [name, blog, x, btype] = line.strip().split(',')
+            print(blog)
+            if blog:
                 mem = Member(
                     uid=uuid.uuid4(),
                     username=name,
-                    blog=blog1,
-                    blog_type=btype
-                )
-                members.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
-            if blog2.strip():
-                mem = Member(
-                    uid=uuid.uuid4(),
-                    username=name,
-                    blog=blog2,
+                    blog=blog,
                     blog_type=btype
                 )
                 members.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
@@ -91,8 +84,7 @@ def member_card():
                 image="/static/img/"+image,
                 blog=blog,
                 hobby=hobby.split(','),
-                specialty=specialty.split(',')
-            )
+                specialty=specialty.split(','))
             members.update_one({"username": name}, {'$set': mem.to_mongo()}, upsert=True)
 
 
@@ -255,14 +247,15 @@ def put_doc(post):
 
 
 if __name__ == '__main__':
-    sched = BlockingScheduler(timezone="Asia/Seoul")
-    sched.start()
-    sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
-    sched.add_job(member_card, 'cron', hour="10,22", id="test2")
-    sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
-    sched.add_job(velog_blog, 'cron', minute="10", id="test4")
-    sched.add_job(crawl_post, 'cron', minute="20", id="test5")
-    # member_card()
-    # tistory_blog()
-    # velog_blog()
-    # crawl_post()
+    # sched = BlockingScheduler(timezone="Asia/Seoul")
+    # sched.start()
+    # sched.add_job(member_card, 'cron', hour="10,22", id="test2")
+    # sched.add_job(inject_members, 'cron', hour="9,21", id="test1")
+    # sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
+    # sched.add_job(velog_blog, 'cron', minute="10", id="test4")
+    # sched.add_job(crawl_post, 'cron', minute="20", id="test5")
+    member_card()
+    inject_members()
+    tistory_blog()
+    velog_blog()
+    crawl_post()
