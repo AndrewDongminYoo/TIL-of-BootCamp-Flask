@@ -13,11 +13,11 @@ bp = Blueprint(name="api", import_name="api", url_prefix="/api")
 @bp.route("/rank")
 def get_list_of_blogs():
     ranking = list(col1.find({}, {"_id": False}).sort("blog_list", -1))
-    result = dict()
+    result = list()
     for ranker in ranking:
         if ranker.get("blog_list"):
-            result[len(ranker.get("blog_list"))] = ranker
-    return jsonify(result)
+            result.append(ranker)
+    return jsonify(sorted(result, key=lambda x: (len(x["blog_list"])), reverse=True))
 
 
 @bp.route("/notion_naver_medium")

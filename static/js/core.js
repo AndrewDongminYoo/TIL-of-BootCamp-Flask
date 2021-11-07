@@ -23,7 +23,7 @@ const thumbnail = (til_post) => {
                     </span>
                 </div>
                     <div class="post_thumb" style="background-image: url('${image}')">
-                </div>    
+                </div>
             </a>
         </li>`
 
@@ -75,10 +75,9 @@ const getRank = () => {
         .then(res => res.json())
         .then(results => {
             let rankers = []
-            Object.entries(results)
-                .sort(([cnt,]) => -parseInt(cnt))
-                .forEach(([cnt, person]) => {
-                    let template = rankAuthor(person, cnt)
+            results
+                .forEach(person => {
+                    let template = rankAuthor(person, person["blog_list"].length)
                     rankers.push(template)
                 })
             document.querySelector("#rec1").innerHTML = rankers.join("")

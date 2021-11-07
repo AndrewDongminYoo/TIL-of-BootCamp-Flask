@@ -107,7 +107,7 @@ def tistory_blog():
         if not url_list:
             regex = re.compile(url+"entry/" + r"[\-%\w\d]+")
             url_list = sorted(regex.findall(soup.text))
-        members.update_one({"username": name}, {"$set": {"blog_list": url_list}}, upsert=True)
+        members.update_one({"username": name}, {"$set": {"blog_list": sorted(list(set(url_list)))}}, upsert=True)
     driver.quit()
 
 
@@ -254,8 +254,8 @@ if __name__ == '__main__':
     # sched.add_job(tistory_blog, 'cron', minute="0", id="test3")
     # sched.add_job(velog_blog, 'cron', minute="10", id="test4")
     # sched.add_job(crawl_post, 'cron', minute="20", id="test5")
-    member_card()
     inject_members()
+    member_card()
     tistory_blog()
     velog_blog()
     crawl_post()
