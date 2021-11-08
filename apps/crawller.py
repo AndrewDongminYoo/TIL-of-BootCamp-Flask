@@ -17,8 +17,8 @@ import os
 
 client = MongoClient("mongodb://admin:rew748596@3.35.149.46:27017/")
 db = client.get_database("member_card")
-articles: Collection = db.get_collection("articles")
-members: Collection = db.get_collection("members")
+articles = db.get_collection("articles")
+members = db.get_collection("members")
 members_blogs = members.find({}).sort("blog_type")
 
 chrome_options = webdriver.ChromeOptions()
@@ -26,7 +26,8 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument("--single-process")
 chrome_options.add_argument("--disable-dev-shm-usage")
-path = "./chromedriver"
+# path = "./chromedriver"
+path = __path__
 
 
 class Member(me.Document):
@@ -244,7 +245,7 @@ def crawl_post():
     driver.quit()
 
 
-def get_time(time_string) -> datetime:
+def get_time(time_string):
     timezone(timedelta(hours=+9))
     regex0 = re.compile(r"[약 ]*(\d{1,2})일 전")
     regex00 = re.compile(r"[약 ]*(\d{1,2})시간 전")
@@ -284,6 +285,7 @@ def put_doc(post):
 
 
 def main():
+    print("hi", datetime.now())
     inject_members()
     member_card()
     tistory_blog()
@@ -293,7 +295,9 @@ def main():
 
 
 if __name__ == '__main__':
+    main()
     schedule.every().hours.do(main)
     while True:
         schedule.run_pending()
+        time.sleep(1)
     # main()
