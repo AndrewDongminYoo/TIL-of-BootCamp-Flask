@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
 import os
 
-client = MongoClient(os.environ.get('DB_PATH'))
+client = MongoClient("mongodb://admin:rew748596@3.35.149.46:27017/")
 db = client.get_database("member_card")
 col1 = db.get_collection("members")
 col2 = db.get_collection("articles")

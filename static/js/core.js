@@ -15,7 +15,7 @@ const thumbnail = (til_post) => {
                         <span>댓글</span>
                         <span class="num_txt">${comment}</span>
                         <span class="ico_dot"></span>
-                        <span class="publish_time">${moment(registered).fromNow()}</span>
+                        <span class="publish_time">${moment(registered).subtract(9, 'hours').fromNow()}</span>
                         <span class="ico_dot"></span>
                         <span class="txt_by">${site_name}</span>
                         <span class="ico_dot"></span>
