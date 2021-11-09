@@ -26,8 +26,7 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument("--single-process")
 chrome_options.add_argument("--disable-dev-shm-usage")
-# path = "./chromedriver"
-path = __path__
+path = "./chromedriver"
 
 
 class Member(me.Document):
@@ -274,9 +273,11 @@ def get_time(time_string):
     elif regex2.match(time_string):
         year, month, day, hour, minute, sec = map(int, regex2.match(time_string).groups())
         return datetime(year, month, day, hour, minute, sec)
-    else:
+    elif regex02.match(time_string):
         year, month, day, hour, minute, sec = map(int, regex02.match(time_string).groups())
         return datetime(year, month, day, hour, minute, sec)
+    else:
+        return time_string
 
 
 def put_doc(post):
@@ -285,18 +286,21 @@ def put_doc(post):
 
 
 def main():
-    print("hi", datetime.now())
-    inject_members()
-    member_card()
-    tistory_blog()
-    github_blog()
-    velog_blog()
-    crawl_post()
+    try:
+        print("hi", datetime.now())
+        inject_members()
+        member_card()
+        tistory_blog()
+        github_blog()
+        velog_blog()
+        crawl_post()
+    except TimeoutError:
+        print("TimeOutError!!")
 
 
 if __name__ == '__main__':
     main()
-    schedule.every().hours.do(main)
+    schedule.every().hour.do(main)
     while True:
         schedule.run_pending()
         time.sleep(1)
