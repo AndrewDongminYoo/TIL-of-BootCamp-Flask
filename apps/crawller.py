@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from datetime import datetime, timedelta, timezone
 from selenium.webdriver.common.by import By
-from pymongo.collection import Collection
 from pymongo import MongoClient
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -21,12 +20,12 @@ articles = db.get_collection("articles")
 members = db.get_collection("members")
 members_blogs = members.find({}).sort("blog_type")
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument("--single-process")
-chrome_options.add_argument("--disable-dev-shm-usage")
-path = "./chromedriver"
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument("--single-process")
+options.add_argument("--disable-dev-shm-usage")
+path = "chromedriver"
 
 
 class Member(me.Document):
@@ -60,8 +59,8 @@ def inject_members():
         input_file.__next__()
         for line in input_file.readlines():
             [name, blog, x, btype] = line.strip().split(',')
-            print(blog)
             if blog:
+                print(blog)
                 mem = Member(
                     uid=uuid.uuid4(),
                     username=name,
@@ -97,7 +96,7 @@ def member_card():
 
 def tistory_blog():
     print("daum-tistory blog detected")
-    driver = webdriver.Chrome(path, chrome_options=chrome_options)
+    driver = webdriver.Chrome(path, options=options)
     tistory_members = members.find({"blog_type": "tistory"}, {"_id": False})
     tistory_urls = []
     for member in tistory_members:
@@ -120,7 +119,7 @@ def tistory_blog():
 
 def github_blog():
     print("github.io blog detected")
-    driver = webdriver.Chrome(path, chrome_options=chrome_options)
+    driver = webdriver.Chrome(path, options=options)
     github_members = members.find({"blog_type": "github"}, {"_id": False})
     github_urls = []
     for member in github_members:
@@ -140,7 +139,7 @@ def github_blog():
 
 def velog_blog():
     print("velo-pert blog detected")
-    driver = webdriver.Chrome(path, chrome_options=chrome_options)
+    driver = webdriver.Chrome(path, options=options)
     velog_members = members.find({"blog_type": "velog"}, {"_id": False})
     velog_urls = []
     for mem in velog_members:
@@ -168,7 +167,7 @@ def velog_blog():
 
 def crawl_post():
     print("let's crawl!!!!!")
-    driver = webdriver.Chrome(path, chrome_options=chrome_options)
+    driver = webdriver.Chrome(path, options=options)
     for student in members_blogs:
         if student.get("blog_list"):
             blog_list = list(set(student["blog_list"]))
@@ -296,6 +295,8 @@ def main():
         crawl_post()
     except TimeoutError:
         print("TimeOutError!!")
+    except WebDriverException:
+        print("WebDriverException")
 
 
 if __name__ == '__main__':
